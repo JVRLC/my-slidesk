@@ -1,0 +1,7 @@
+import{L as e,T as t,Y as n,_ as r,g as i,gt as a,mt as o}from"./modules/shiki-CLWvtuQJ.js";import{et as s,tt as c}from"./index-Bde8Gaxk.js";import{t as l}from"./slidev/default-CMqY-HEn.js";var u={__name:`slides.md__slidev_3`,setup(u){let{$slidev:d,$nav:f,$clicksContext:p,$clicks:m,$page:h,$renderContext:g,$frontmatter:_}=c();return p.setup(),(c,u)=>(e(),r(l,a(t(o(s)(o(_),2))),{default:n(()=>[...u[0]||=[i(`div`,{class:`py-8`},[i(`span`,{class:`claude-badge mb-4`},`Alignment & Trust`),i(`h2`,{class:`text-4xl mb-6`},`Thoughtful by Design`),i(`p`,{class:`text-lg text-[#a8a29e] max-w-2xl font-light mb-8`},` Trained with Constitutional AI to uphold safety, steerability, and rigorous ethical standards. `),i(`div`,{class:`grid grid-cols-2 gap-8`},[i(`div`,{class:`claude-box`},[i(`h3`,{class:`text-xl mb-3`},`Constitutional Alignment`),i(`p`,{class:`text-sm text-[#a8a29e] leading-relaxed`},` Iterative feedback loops ensuring high resistance to misuse while maintaining helpfulness. `)]),i(`pre`,null,[i(`code`,null,`<div class="claude-box">
+  <h3 class="text-xl mb-3">Frontier Safety Protocol</h3>
+  <p class="text-sm text-[#a8a29e] leading-relaxed">
+    Proactive evaluation against biological, cyber, and autonomous escalation risks.
+  </p>
+</div>
+`)])])],-1)]]),_:1},16))}};export{u as default};

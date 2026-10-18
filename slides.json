@@ -1,5 +1,22 @@
 [
   {
+    "title": "European AI Sovereignty",
+    "folder": "european-ai-sovereignty",
+    "description": "Breaking cloud monopoly with agentic AI and open source infrastructure.",
+    "date": "September 2026",
+    "tags": [
+      "Geopolitics",
+      "AI Sovereignty",
+      "Cloud",
+      "Open Source"
+    ],
+    "author": "Serigne",
+    "theme": "default",
+    "slidesCount": 6,
+    "cover": "",
+    "order": 1
+  },
+  {
     "title": "Claude 3.5 Sonnet Architecture",
     "folder": "demo-presentation",
     "description": "Technical overview and frontier intelligence benchmarks.",
@@ -13,6 +30,6 @@
     "theme": "default",
     "slidesCount": 3,
     "cover": "",
-    "order": 1
+    "order": 2
   }
 ]
