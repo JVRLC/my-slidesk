@@ -64,52 +64,61 @@
         </header>
 
         <div id="slides-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Les cartes sont générées ici -->
+            <!-- Généré dynamiquement via slides.json -->
         </div>
     </div>
 
     <script>
-        // CONFIGURATION DES SLIDES
-        const slides = [
-            {
-                title: "Présentation Démo",
-                description: "Exploration des capacités de Slidev et intégration du portail cosmic.",
-                path: "/my-slidesk/demo-presentation/",
-                date: "Octobre 2026",
-                tags: ["Architecture", "Design"]
-            },
-        ];
+        async function loadSlides() {
+            try {
+                // On récupère le nom du repo depuis l'URL
+                const pathParts = window.location.pathname.split('/');
+                const repoName = pathParts[1] || 'my-slidesk';
+                const baseUrl = '/' + repoName + '/';
 
-        const grid = document.getElementById('slides-grid');
+                // On fetch le fichier JSON généré par GitHub Actions
+                const response = await fetch(baseUrl + 'slides.json');
+                const slides = await response.json();
 
-        if (slides.length === 0) {
-            grid.innerHTML = '<p class="text-center col-span-full text-slate-500">Aucune présentation disponible pour le moment.</p>';
-        } else {
-            slides.forEach(slide => {
-                const card = document.createElement('a');
-                card.href = slide.path;
-                card.className = 'glass-card p-8 rounded-3xl block group';
+                const grid = document.getElementById('slides-grid');
 
-                card.innerHTML = \`
-                    <div class="flex flex-col h-full">
-                        <div class="flex justify-between items-start mb-6">
-                            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">
-                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 12h18M3 5h18M3 19h18"></path>
-                                </svg>
+                if (!slides || slides.length === 0) {
+                    grid.innerHTML = '<p class="text-center col-span-full text-slate-500">Aucune présentation disponible pour le moment.</p>';
+                    return;
+                }
+
+                slides.forEach(slide => {
+                    const card = document.createElement('a');
+                    // Le lien est maintenant : /repo/nom-du-dossier/
+                    card.href = baseUrl + slide.folder + '/';
+                    card.className = 'glass-card p-8 rounded-3xl block group';
+
+                    card.innerHTML = \`
+                        <div class="flex flex-col h-full">
+                            <div class="flex justify-between items-start mb-6">
+                                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 12h18M3 5h18M3 19h18"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-xs font-medium text-slate-500">\${slide.date || 'Sans date'}</span>
                             </div>
-                            <span class="text-xs font-medium text-slate-500">\${slide.date}</span>
+                            <h2 class="text-2xl font-bold mb-3 text-white group-hover:text-indigo-300 transition-colors">\${slide.title}</h2>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">\${slide.description || 'Pas de description'}</p>
+                            <div class="flex flex-wrap gap-2">
+                                \${(slide.tags || []).map(tag => \`<span class="text-[10px] uppercase tracking-wider px-2 py-1 bg-white/5 text-slate-300 border border-white/10 rounded-md">\${tag}</span>\`).join('')}
+                            </div>
                         </div>
-                        <h2 class="text-2xl font-bold mb-3 text-white group-hover:text-indigo-300 transition-colors">\${slide.title}</h2>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">\${slide.description}</p>
-                        <div class="flex flex-wrap gap-2">
-                            \${slide.tags.map(tag => \`<span class="text-[10px] uppercase tracking-wider px-2 py-1 bg-white/5 text-slate-300 border border-white/10 rounded-md">\${tag}</span>\`).join('')}
-                        </div>
-                    </div>
-                \`;
-                grid.appendChild(card);
-            });
+                    \`;
+                    grid.appendChild(card);
+                });
+            } catch (e) {
+                console.error("Error loading slides:", e);
+                document.getElementById('slides-grid').innerHTML = '<p class="text-center col-span-full text-red-400">Erreur lors du chargement des slides. Vérifiez le déploiement.</p>';
+            }
         }
+
+        loadSlides();
     </script>
 </body>
 </html>

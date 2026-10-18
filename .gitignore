@@ -1,1 +1,4 @@
 node_modules/
+.slidev/
+dist/
+.github/workflows/_temp/
