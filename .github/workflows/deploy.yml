@@ -20,10 +20,8 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install Slidev
-        run: |
-          npm install -g npm@latest
-          npm install -g @slidev/cli
+      - name: Install Dependencies
+        run: npm install
 
       - name: Build all presentations
         run: |
@@ -34,7 +32,7 @@ jobs:
             if [ -d "$dir" ]; then
               dir_name=$(basename "$dir")
               echo "Building $dir_name..."
-              slidev build "$dir/slides.md" --base "/my-slidesk/$dir_name/" --out "$GITHUB_WORKSPACE/dist/$dir_name"
+              npx slidev build "$dir/slides.md" --base "/my-slidesk/$dir_name/" --out "$GITHUB_WORKSPACE/dist/$dir_name"
             fi
           done
 

@@ -1,0 +1,11 @@
+{
+  "name": "my-slidesk",
+  "private": true,
+  "scripts": {
+    "build": "slidev build"
+  },
+  "dependencies": {
+    "@slidev/cli": "latest",
+    "@slidev/theme-default": "latest"
+  }
+}
