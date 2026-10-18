@@ -21,7 +21,7 @@ jobs:
           node-version: 20
 
       - name: Install Slidev
-        run: npm install -g @slidev/cli
+        run: npm install @slidev/cli
 
       - name: Build all presentations
         run: |
@@ -33,7 +33,7 @@ jobs:
             if [ -d "$dir" ]; then
               dir_name=$(basename "$dir")
               echo "Building $dir_name..."
-              slidev build "$dir/slides.md" --out "dist/$dir_name"
+              npx slidev build "$dir/slides.md" --out "dist/$dir_name"
             fi
           done
 
