@@ -20,9 +20,6 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install Slidev
-        run: npm install @slidev/cli
-
       - name: Build all presentations
         run: |
           mkdir -p dist
@@ -33,7 +30,8 @@ jobs:
             if [ -d "$dir" ]; then
               dir_name=$(basename "$dir")
               echo "Building $dir_name..."
-              npx slidev build "$dir/slides.md" --out "dist/$dir_name"
+              # Use npx directly without prior npm install
+              npx @slidev/cli build "$dir/slides.md" --out "dist/$dir_name"
             fi
           done
 
