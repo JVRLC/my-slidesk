@@ -8,19 +8,17 @@ date: September 2026
 order: 1
 background: '#141413'
 class: text-left
-highlighter: shiki
 lineNumbers: false
 ---
 
-<!-- Slide 01 / 06 -->
-<div class="h-full flex flex-col justify-between py-6">
+<div class="h-full flex flex-col justify-between">
   <div class="flex justify-between items-center text-xs font-mono text-[#a8a29e] tracking-widest uppercase">
     <span class="claude-badge">Digital Geopolitics</span>
     <span>01 / 06</span>
   </div>
 
   <div class="my-auto">
-    <h1 class="text-6xl mb-8 font-normal leading-tight">
+    <h1 class="text-6xl mb-6 font-normal leading-tight">
       European AI <br><span class="accent-text italic">Sovereignty</span>
     </h1>
 
@@ -33,10 +31,10 @@ lineNumbers: false
       <div class="space-y-3">
         <div class="text-xs uppercase font-mono tracking-widest text-[#78716c]">Core Keywords</div>
         <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Monopoly</span>
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Dependency</span>
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">US Cloud Act</span>
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Critical Infrastructure</span>
+          <span class="keyword-pill">Monopoly</span>
+          <span class="keyword-pill">Dependency</span>
+          <span class="keyword-pill">US Cloud Act</span>
+          <span class="keyword-pill">Infrastructure</span>
         </div>
       </div>
     </div>
@@ -56,15 +54,14 @@ Presenter Notes (0:00 - 0:50):
 
 ---
 
-<!-- Slide 02 / 06 -->
-<div class="h-full flex flex-col justify-between py-6">
+<div class="h-full flex flex-col justify-between">
   <div class="flex justify-between items-center text-xs font-mono text-[#a8a29e] tracking-widest uppercase">
     <span class="claude-badge">Technological Shift</span>
     <span>02 / 06</span>
   </div>
 
   <div class="my-auto">
-    <h2 class="text-5xl mb-8 font-normal">
+    <h2 class="text-5xl mb-6 font-normal">
       The <span class="italic accent-text">Agentic</span> Revolution
     </h2>
 
@@ -85,10 +82,10 @@ Presenter Notes (0:00 - 0:50):
       <div class="space-y-3">
         <div class="text-xs uppercase font-mono tracking-widest text-[#78716c]">Core Keywords</div>
         <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Agentic AI</span>
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Autonomous Execution</span>
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Sensitive Workflows</span>
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Strategic Autonomy</span>
+          <span class="keyword-pill">Agentic AI</span>
+          <span class="keyword-pill">Autonomous Execution</span>
+          <span class="keyword-pill">Sensitive Workflows</span>
+          <span class="keyword-pill">Strategic Autonomy</span>
         </div>
       </div>
     </div>
@@ -109,15 +106,14 @@ Presenter Notes (0:50 - 1:40):
 
 ---
 
-<!-- Slide 03 / 06 -->
-<div class="h-full flex flex-col justify-between py-6">
+<div class="h-full flex flex-col justify-between">
   <div class="flex justify-between items-center text-xs font-mono text-[#a8a29e] tracking-widest uppercase">
     <span class="claude-badge">Physical Infrastructure</span>
     <span>03 / 06</span>
   </div>
 
   <div class="my-auto">
-    <h2 class="text-5xl mb-8 font-normal">
+    <h2 class="text-5xl mb-6 font-normal">
       The <span class="italic accent-text">Datacenter</span> Battleground
     </h2>
 
@@ -136,10 +132,10 @@ Presenter Notes (0:50 - 1:40):
       <div class="space-y-3">
         <div class="text-xs uppercase font-mono tracking-widest text-[#78716c]">Core Keywords</div>
         <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Datacenters</span>
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Energy Grid</span>
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Hardware Independence</span>
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Local Compute</span>
+          <span class="keyword-pill">Datacenters</span>
+          <span class="keyword-pill">Energy Grid</span>
+          <span class="keyword-pill">Hardware Lock-in</span>
+          <span class="keyword-pill">Local Compute</span>
         </div>
       </div>
     </div>
@@ -160,15 +156,14 @@ Presenter Notes (1:40 - 2:30):
 
 ---
 
-<!-- Slide 04 / 06 -->
-<div class="h-full flex flex-col justify-between py-6">
+<div class="h-full flex flex-col justify-between">
   <div class="flex justify-between items-center text-xs font-mono text-[#a8a29e] tracking-widest uppercase">
     <span class="claude-badge">The Alternative</span>
     <span>04 / 06</span>
   </div>
 
   <div class="my-auto">
-    <h2 class="text-5xl mb-8 font-normal">
+    <h2 class="text-5xl mb-6 font-normal">
       The <span class="italic accent-text">Open Source</span> Shield
     </h2>
 
@@ -190,11 +185,11 @@ Presenter Notes (1:40 - 2:30):
       <div class="space-y-3">
         <div class="text-xs uppercase font-mono tracking-widest text-[#78716c]">Core Keywords</div>
         <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Open Source</span>
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Mistral AI</span>
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Self-Hosting</span>
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Data Privacy</span>
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Interoperability</span>
+          <span class="keyword-pill">Open Source</span>
+          <span class="keyword-pill">Mistral AI</span>
+          <span class="keyword-pill">Self-Hosting</span>
+          <span class="keyword-pill">Data Privacy</span>
+          <span class="keyword-pill">Interoperability</span>
         </div>
       </div>
     </div>
@@ -209,39 +204,38 @@ Presenter Notes (1:40 - 2:30):
 Presenter Notes (2:30 - 3:30):
 - Tone: Optimistic, empowering.
 - Solution: "Is it too late? Absolutely not. Europe has a distinct secret weapon: Open Source."
-- Concrete examples: "Champions like Mistral in Paris prove open models compete at the frontier. Running open weights on European providers like OVHcloud or Scaleway means: 1) You own the weights, 2) You can self-host on-premise, 3) No foreign CEO can revoke your API key overnight."
+- Concrete examples: "Champions like Mistral in Paris prove open models compete at the frontier. Running open weights on European providers like OVHcloud or Scaleway means: 1) You own the weights, 2) You can self-host on-premise, 3) No foreign CEO can shut down your systems overnight."
 - Key thesis: "Open source is not just a license; it is an anti-monopoly defense mechanism."
 -->
 
 ---
 
-<!-- Slide 05 / 06 -->
-<div class="h-full flex flex-col justify-between py-6">
+<div class="h-full flex flex-col justify-between">
   <div class="flex justify-between items-center text-xs font-mono text-[#a8a29e] tracking-widest uppercase">
     <span class="claude-badge">The Choice</span>
     <span>05 / 06</span>
   </div>
 
   <div class="my-auto">
-    <h2 class="text-5xl mb-8 font-normal">
+    <h2 class="text-5xl mb-6 font-normal">
       Digital Colony or <span class="italic accent-text">Architect</span>?
     </h2>
 
     <div class="grid grid-cols-2 gap-8 items-center max-w-4xl">
-      <div class="claude-box text-center py-8 border-[#d97757]/30">
-        <div class="text-xs uppercase font-mono tracking-widest text-[#a8a29e] mb-3">Civilizational Dilemma</div>
-        <div class="text-3xl font-serif-claude text-[#faf9f5] mb-2">Vassal State</div>
-        <div class="text-sm text-[#78716c] font-mono">vs</div>
-        <div class="text-3xl font-serif-claude accent-text mt-2">Sovereign Power</div>
+      <div class="claude-box text-center py-6 border-[#d97757]/30">
+        <div class="text-xs uppercase font-mono tracking-widest text-[#a8a29e] mb-2">Civilizational Dilemma</div>
+        <div class="text-3xl font-serif-claude text-[#faf9f5] mb-1">Vassal State</div>
+        <div class="text-xs text-[#78716c] font-mono my-1">vs</div>
+        <div class="text-3xl font-serif-claude accent-text mt-1">Sovereign Power</div>
       </div>
 
       <div class="space-y-3">
         <div class="text-xs uppercase font-mono tracking-widest text-[#78716c]">Core Keywords</div>
         <div class="flex flex-wrap gap-2">
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Economic Independence</span>
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Digital Sovereignty</span>
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Talent Retention</span>
-          <span class="px-3 py-1 rounded-md bg-[#262421] text-[#faf9f5] text-sm border border-[rgba(235,233,227,0.1)] font-medium">Strategic Action</span>
+          <span class="keyword-pill">Economic Independence</span>
+          <span class="keyword-pill">Digital Sovereignty</span>
+          <span class="keyword-pill">Talent Retention</span>
+          <span class="keyword-pill">Strategic Action</span>
         </div>
       </div>
     </div>
@@ -256,14 +250,13 @@ Presenter Notes (2:30 - 3:30):
 Presenter Notes (3:30 - 4:20):
 - Tone: Inspiring call to action, strong eye contact with classmates.
 - Conclusion: "This debate is not just for cloud architects or lawyers. It concerns every single one of us."
-- Direct appeal: "Will Europe remain a passive digital consumer, paying rent to foreign monopolies, watching our best engineers migrate to Silicon Valley? Or will we finance our own infrastructure, protect our public data, and build sovereign models?"
+- Direct appeal: "Will Europe remain a passive digital consumer, paying rent to foreign monopolies, watching our best engineers emigrate? Or will we finance our own infrastructure, protect our public data, and build sovereign models?"
 - Final punch: "Sovereignty is not protectionism. Sovereignty is the freedom to choose your own future."
 -->
 
 ---
 
-<!-- Slide 06 / 06 -->
-<div class="h-full flex flex-col justify-between py-6">
+<div class="h-full flex flex-col justify-between">
   <div class="flex justify-between items-center text-xs font-mono text-[#a8a29e] tracking-widest uppercase">
     <span class="claude-badge">Documentation</span>
     <span>06 / 06</span>
@@ -275,7 +268,6 @@ Presenter Notes (3:30 - 4:20):
     </h2>
 
     <div class="grid grid-cols-2 gap-8 items-start max-w-4xl">
-      <!-- Sources List -->
       <div class="claude-box space-y-3">
         <div class="text-xs uppercase font-mono tracking-widest text-[#a8a29e] pb-1 border-b border-[rgba(235,233,227,0.08)]">
           Documented Sources
@@ -288,7 +280,6 @@ Presenter Notes (3:30 - 4:20):
         </ul>
       </div>
 
-      <!-- Discussion Trigger -->
       <div class="claude-box border-[#d97757]/30 space-y-3">
         <div class="text-xs uppercase font-mono tracking-widest text-[#e28768] pb-1 border-b border-[rgba(235,233,227,0.08)]">
           Debate Question
