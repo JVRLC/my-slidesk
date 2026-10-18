@@ -68,18 +68,12 @@
     </div>
 
     <script>
-        // 1. DÉTECTION AUTOMATIQUE DU CHEMIN
-        // On récupère le chemin actuel (ex: /mon-pseudo.github.io/mon-repo/)
-        const pathParts = window.location.pathname.split('/');
-        // Le nom du repo est généralement le deuxième segment après le domaine
-        const repoName = pathParts[1] || '';
-        const baseUrl = repoName ? '/' + repoName + '/' : '/';
-
+        // LIENS EN DUR POUR ÊTRE SÛR À 100%
         const slides = [
             {
                 title: "Présentation Démo",
                 description: "Exploration des capacités de Slidev et intégration du portail cosmic.",
-                folder: "demo-presentation", // On met juste le nom du dossier
+                path: "/my-slidesk/demo-presentation/",
                 date: "Octobre 2026",
                 tags: ["Architecture", "Design"]
             },
@@ -89,8 +83,7 @@
 
         slides.forEach(slide => {
             const card = document.createElement('a');
-            // On construit l'URL dynamiquement : /repo/dossier/
-            card.href = baseUrl + slide.folder + '/';
+            card.href = slide.path;
             card.className = 'glass-card p-8 rounded-3xl block group';
 
             card.innerHTML = \`
