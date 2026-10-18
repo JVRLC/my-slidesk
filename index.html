@@ -1,167 +1,537 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slide Desk | Ultra Cosmic</title>
+    <title>Slide Desk | Presentation Hub</title>
+    <meta name="description" content="A curated collection of interactive presentations and technical briefings, built for clarity and impact.">
+
+    <!-- Inline SVG Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d97757'%3E%3Cpath d='M4 5a2 2 0 012-2h12a2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm2 0v11h12V5H6zm3 15h6v2H9v-2z'/%3E%3C/svg%3E">
+
+    <!-- OpenGraph Metadata -->
+    <meta property="og:title" content="Slide Desk | Presentation Hub">
+    <meta property="og:description" content="A curated collection of interactive presentations and technical briefings, built for clarity and impact.">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS & Google Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --primary: #818cf8;
-            --secondary: #c084fc;
-            --bg-dark: #020617;
+            /* Anthropic Claude Keynote Palette */
+            --bg-base: #141413;
+            --bg-surface: #1d1c1a;
+            --bg-surface-hover: #262421;
+            --border-subtle: rgba(235, 233, 227, 0.08);
+            --border-hover: rgba(217, 119, 87, 0.45);
+            --terracotta: #d97757;
+            --terracotta-light: #e28768;
+            --terracotta-dark: #b85d3e;
+            --text-heading: #faf9f5;
+            --text-body: #cec9bf;
+            --text-muted: #948f85;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: #f8fafc;
+            background-color: var(--bg-base);
+            color: var(--text-body);
             overflow-x: hidden;
             min-height: 100vh;
         }
 
-        /* Arrière-plan animé avec des orbes de couleur */
-        .bg-orb {
+        .font-serif-claude {
+            font-family: 'Newsreader', Georgia, serif;
+            font-feature-settings: "liga" 1, "calt" 1;
+        }
+
+        /* Ambient lighting inspired by Claude keynote presentations */
+        .ambient-glow {
             position: fixed;
-            width: 60vw;
-            height: 60vw;
             border-radius: 50%;
-            filter: blur(100px);
+            filter: blur(140px);
             z-index: -1;
-            opacity: 0.25;
-            animation: float 20s infinite alternate;
+            pointer-events: none;
         }
-        .orb-1 { background: #4f46e5; top: -10%; left: -10%; animation-delay: 0s; }
-        .orb-2 { background: #9333ea; bottom: -10%; right: -10%; animation-delay: -5s; }
-        .orb-3 { background: #0ea5e9; top: 40%; left: 30%; animation-delay: -10s; width: 30vw; height: 30vw; }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(5% , 5%) scale(1.1); }
+        .glow-terracotta {
+            width: 50vw;
+            height: 50vw;
+            background: radial-gradient(circle, rgba(217, 119, 87, 0.15) 0%, rgba(20, 20, 19, 0) 70%);
+            top: -15%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .glow-amber {
+            width: 40vw;
+            height: 40vw;
+            background: radial-gradient(circle, rgba(184, 93, 62, 0.1) 0%, rgba(20, 20, 19, 0) 70%);
+            bottom: -10%;
+            right: -5%;
         }
 
-        /* Cartes Glassmorphism Ultra */
-        .glass-card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        /* Architectural cards */
+        .claude-card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
             position: relative;
-            overflow: hidden;
         }
 
-        .glass-card::before {
+        .claude-card:hover {
+            background-color: var(--bg-surface-hover);
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 30px rgba(217, 119, 87, 0.08);
+        }
+
+        .claude-card::after {
             content: "";
             position: absolute;
-            top: 0; left: 0; right: 0; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            transform: translateX(-100%);
-            transition: 0.6s;
+            top: 0;
+            left: 24px;
+            right: 24px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(217, 119, 87, 0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .claude-card:hover::after {
+            opacity: 1;
         }
 
-        .glass-card:hover::before {
-            transform: translateX(100%);
+        /* Search input */
+        .claude-input {
+            background-color: rgba(29, 28, 26, 0.85);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-heading);
+            transition: all 0.25s ease;
+        }
+        .claude-input:focus {
+            border-color: var(--terracotta);
+            box-shadow: 0 0 0 2px rgba(217, 119, 87, 0.15);
+            outline: none;
         }
 
-        .glass-card:hover {
-            background: rgba(30, 41, 59, 0.7);
-            border-color: rgba(129, 140, 248, 0.4);
-            transform: translateY(-12px);
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6), 0 0 20px rgba(129, 140, 248, 0.15);
+        /* Action buttons on cards */
+        .card-action-btn {
+            background: rgba(38, 36, 33, 0.8);
+            border: 1px solid rgba(235, 233, 227, 0.08);
+            color: #a8a29e;
+            transition: all 0.2s ease;
+        }
+        .card-action-btn:hover {
+            color: #faf9f5;
+            background: rgba(48, 45, 41, 1);
+            border-color: rgba(217, 119, 87, 0.4);
         }
 
-        .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        /* Skeleton pulse */
+        @keyframes pulseSkeleton {
+            0%, 100% { opacity: 0.35; }
+            50% { opacity: 0.65; }
         }
-
-        .accent-gradient {
-            background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Animation d'entrée des cartes */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-card {
-            animation: fadeInUp 0.6s ease backwards;
+        .skeleton {
+            animation: pulseSkeleton 1.6s infinite ease-in-out;
+            background-color: rgba(235, 233, 227, 0.06);
         }
     </style>
 </head>
-<body class="p-8 relative">
-    <div class="bg-orb orb-1"></div>
-    <div class="bg-orb orb-2"></div>
-    <div class="bg-orb orb-3"></div>
+<body class="p-6 md:p-12 relative selection:bg-[#d97757]/30 selection:text-[#faf9f5]">
+    <div class="ambient-glow glow-terracotta"></div>
+    <div class="ambient-glow glow-amber"></div>
 
-    <div class="max-w-6xl mx-auto relative">
-        <header class="mb-24 text-center">
-            <h1 class="text-7xl font-extrabold mb-8 tracking-tighter text-gradient">
-                Slide <span class="accent-gradient">Desk</span>
+    <div class="max-w-6xl mx-auto relative flex flex-col min-h-[92vh]">
+        <!-- Top utility bar -->
+        <nav class="flex items-center justify-between mb-12 pb-4 border-b border-[rgba(235,233,227,0.06)]" aria-label="Top navigation">
+            <div class="inline-flex items-center gap-2 px-3 py-1 text-xs font-medium tracking-widest uppercase bg-[#d97757]/10 text-[#e28768] border border-[#d97757]/20 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#d97757]"></span>
+                Presentation Desk
+            </div>
+
+            <a 
+                href="https://github.com/JVRLC/my-slidesk" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-medium text-[#a8a29e] hover:text-[#faf9f5] bg-[#1d1c1a] hover:bg-[#262421] border border-[rgba(235,233,227,0.08)] rounded-lg transition-all"
+                aria-label="View source repository on GitHub"
+            >
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                </svg>
+                <span>GitHub</span>
+            </a>
+        </nav>
+
+        <!-- Claude Editorial Header -->
+        <header class="mb-14 text-center">
+            <h1 class="text-5xl md:text-7xl font-normal mb-5 tracking-tight font-serif-claude text-[#faf9f5]">
+                Slide <span class="italic text-[#e28768]">Desk</span>
             </h1>
-            <p class="text-slate-400 text-xl max-w-2xl mx-auto font-light leading-relaxed opacity-80">
-                Curated high-definition presentations. <br>
-                <span class="text-sm uppercase tracking-widest text-indigo-400 font-semibold">Design & Clarity</span>
+            <p class="text-[#a8a29e] text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+                A curated collection of interactive presentations and technical briefings, built for clarity and impact.
             </p>
         </header>
 
-        <div id="slides-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <!-- Généré dynamiquement -->
-        </div>
+        <!-- Filters and search toolbar -->
+        <section class="mb-12 space-y-6" aria-label="Search and filtering">
+            <div class="flex flex-col sm:flex-row gap-4 justify-between items-center">
+                <div class="relative w-full sm:max-w-md">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-[#78716c]">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                    </span>
+                    <input 
+                        type="search" 
+                        id="search-input" 
+                        placeholder="Search keynotes, authors, topics..." 
+                        class="claude-input w-full pl-11 pr-12 py-3 rounded-xl text-sm placeholder-[#78716c]"
+                        aria-label="Search presentations (Press / to focus)"
+                    >
+                    <span class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                        <kbd class="px-1.5 py-0.5 text-[10px] font-mono bg-[#141413] text-[#78716c] rounded border border-[rgba(235,233,227,0.1)]">/</kbd>
+                    </span>
+                </div>
+                <div id="results-count" class="text-xs text-[#a8a29e] font-mono tracking-wide"></div>
+            </div>
+
+            <!-- Tags bar -->
+            <div id="tags-bar" class="flex flex-wrap gap-2 items-center" aria-label="Topic filters"></div>
+        </section>
+
+        <!-- Presentations grid -->
+        <main id="slides-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 flex-grow">
+            <!-- Skeleton placeholder -->
+            <div class="claude-card p-8 rounded-2xl h-80 flex flex-col justify-between">
+                <div class="flex justify-between items-start">
+                    <div class="w-10 h-10 rounded-xl skeleton"></div>
+                    <div class="w-16 h-4 rounded skeleton"></div>
+                </div>
+                <div class="space-y-3">
+                    <div class="w-3/4 h-6 rounded skeleton"></div>
+                    <div class="w-full h-4 rounded skeleton"></div>
+                    <div class="w-2/3 h-4 rounded skeleton"></div>
+                </div>
+                <div class="flex gap-2">
+                    <div class="w-14 h-5 rounded-full skeleton"></div>
+                    <div class="w-14 h-5 rounded-full skeleton"></div>
+                </div>
+            </div>
+            <div class="claude-card p-8 rounded-2xl h-80 flex flex-col justify-between hidden md:flex">
+                <div class="flex justify-between items-start">
+                    <div class="w-10 h-10 rounded-xl skeleton"></div>
+                    <div class="w-16 h-4 rounded skeleton"></div>
+                </div>
+                <div class="space-y-3">
+                    <div class="w-3/4 h-6 rounded skeleton"></div>
+                    <div class="w-full h-4 rounded skeleton"></div>
+                    <div class="w-2/3 h-4 rounded skeleton"></div>
+                </div>
+                <div class="flex gap-2">
+                    <div class="w-14 h-5 rounded-full skeleton"></div>
+                    <div class="w-14 h-5 rounded-full skeleton"></div>
+                </div>
+            </div>
+        </main>
+
+        <noscript>
+            <div class="p-6 my-8 rounded-xl bg-[#1d1c1a] border border-[rgba(235,233,227,0.08)] text-center text-[#a8a29e]">
+                JavaScript is required to display the presentation catalog. Please enable JavaScript in your browser.
+            </div>
+        </noscript>
+
+        <!-- Claude Editorial Footer -->
+        <footer class="pt-8 pb-4 border-t border-[rgba(235,233,227,0.06)] flex flex-col sm:flex-row items-center justify-between text-xs text-[#78716c] font-light gap-4">
+            <div>
+                Built with <a href="https://sli.dev" target="_blank" rel="noopener noreferrer" class="text-[#a8a29e] hover:text-[#faf9f5] underline underline-offset-2">Slidev</a> • Designed for clarity and impact
+            </div>
+            <div class="flex items-center gap-4">
+                <span>Press <kbd class="px-1 py-0.5 font-mono text-[10px] bg-[#1d1c1a] border border-[rgba(235,233,227,0.1)] rounded text-[#a8a29e]">/</kbd> to search</span>
+                <span>•</span>
+                <span>Press <kbd class="px-1 py-0.5 font-mono text-[10px] bg-[#1d1c1a] border border-[rgba(235,233,227,0.1)] rounded text-[#a8a29e]">Esc</kbd> to clear</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast Notification for Copied Link -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-12 opacity-0 transition-all duration-300 pointer-events-none px-4 py-2.5 rounded-xl bg-[#1d1c1a] border border-[#d97757]/40 shadow-xl text-xs font-medium text-[#faf9f5] flex items-center gap-2">
+        <svg class="w-4 h-4 text-[#e28768]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <span>Link copied to clipboard</span>
     </div>
 
     <script>
-        async function loadSlides() {
-            try {
-                const pathParts = window.location.pathname.split('/');
-                const repoName = pathParts[1] || 'my-slidesk';
-                const baseUrl = '/' + repoName + '/';
+        let allSlides = [];
+        let activeTag = 'ALL';
+        let searchQuery = '';
 
-                const response = await fetch(baseUrl + 'slides.json');
-                const slides = await response.json();
+        function getSlideUrl(folder) {
+            return './' + folder + '/';
+        }
 
-                const grid = document.getElementById('slides-grid');
+        function showToast(message = 'Link copied to clipboard') {
+            const toast = document.getElementById('toast');
+            toast.querySelector('span').textContent = message;
+            toast.classList.remove('translate-y-12', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-12', 'opacity-0');
+            }, 2000);
+        }
 
-                if (!slides || slides.length === 0) {
-                    grid.innerHTML = '<p class="text-center col-span-full text-slate-500 italic">Aucune présentation disponible.</p>';
-                    return;
-                }
+        // Copy link to presentation
+        function copyPresentationLink(e, folder) {
+            e.preventDefault();
+            e.stopPropagation();
+            const url = new URL(getSlideUrl(folder), window.location.href).href;
+            navigator.clipboard.writeText(url).then(() => {
+                showToast('Presentation link copied');
+            }).catch(() => {
+                showToast('Failed to copy link');
+            });
+        }
 
-                slides.forEach((slide, index) => {
-                    const card = document.createElement('a');
-                    card.href = baseUrl + slide.folder + '/';
-                    card.className = 'glass-card p-8 rounded-[2rem] block group animate-card';
-                    card.style.animationDelay = (index * 0.1) + 's';
+        // Sync state to URL Query Parameters
+        function updateUrlParams() {
+            const params = new URLSearchParams();
+            if (activeTag !== 'ALL') params.set('tag', activeTag);
+            if (searchQuery.trim()) params.set('q', searchQuery.trim());
+            const queryStr = params.toString();
+            const newUrl = queryStr ? `${window.location.pathname}?${queryStr}` : window.location.pathname;
+            window.history.replaceState({}, '', newUrl);
+        }
 
-                    card.innerHTML = \`
-                        <div class="flex flex-col h-full">
-                            <div class="flex justify-between items-start mb-8">
-                                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-700 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">
-                                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 12h18M3 5h18M3 19h18"></path>
-                                    </svg>
-                                </div>
-                                <span class="text-xs font-medium text-slate-500 tracking-tighter">\${slide.date || '2026'}</span>
-                            </div>
-                            <h2 class="text-2xl font-bold mb-4 text-white group-hover:text-indigo-300 transition-colors duration-300">\${slide.title}</h2>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow opacity-70">\${slide.description || 'Contenu de présentation'}</p>
-                            <div class="flex flex-wrap gap-2">
-                                \${(slide.tags || []).map(tag => \`<span class="text-[10px] uppercase tracking-widest px-3 py-1 bg-white/5 text-slate-400 border border-white/10 rounded-full group-hover:border-indigo-500/30 transition-colors">\${tag}</span>\`).join('')}
-                            </div>
-                        </div>
-                    \`;
-                    grid.appendChild(card);
-                });
-            } catch (e) {
-                console.error(e);
-                document.getElementById('slides-grid').innerHTML = '<p class="text-center col-span-full text-red-400">Erreur de chargement.</p>';
+        // Read state from URL Query Parameters on load
+        function readUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            const tagParam = params.get('tag');
+            const qParam = params.get('q');
+            if (tagParam) activeTag = tagParam;
+            if (qParam) {
+                searchQuery = qParam;
+                const searchInput = document.getElementById('search-input');
+                if (searchInput) searchInput.value = qParam;
             }
         }
+
+        function renderTags(slides) {
+            const tagsSet = new Set();
+            slides.forEach(s => (s.tags || []).forEach(t => tagsSet.add(t)));
+            const tags = Array.from(tagsSet).sort();
+
+            const tagsBar = document.getElementById('tags-bar');
+            tagsBar.innerHTML = '';
+
+            const allBtn = document.createElement('button');
+            allBtn.type = 'button';
+            allBtn.textContent = 'All';
+            allBtn.className = getTagButtonClass(activeTag === 'ALL');
+            allBtn.onclick = () => {
+                activeTag = 'ALL';
+                updateUrlParams();
+                updateView();
+            };
+            tagsBar.appendChild(allBtn);
+
+            tags.forEach(tag => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.textContent = tag;
+                btn.className = getTagButtonClass(activeTag === tag);
+                btn.onclick = () => {
+                    activeTag = (activeTag === tag) ? 'ALL' : tag;
+                    updateUrlParams();
+                    updateView();
+                };
+                tagsBar.appendChild(btn);
+            });
+        }
+
+        function getTagButtonClass(isActive) {
+            return isActive
+                ? 'px-3.5 py-1.5 text-xs font-medium rounded-lg bg-[#d97757] text-[#faf9f5] border border-[#d97757] shadow-sm transition-all'
+                : 'px-3.5 py-1.5 text-xs font-medium rounded-lg bg-[#1d1c1a] text-[#a8a29e] hover:text-[#faf9f5] hover:bg-[#262421] border border-[rgba(235,233,227,0.08)] transition-all';
+        }
+
+        function resetFilters() {
+            activeTag = 'ALL';
+            searchQuery = '';
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) {
+                searchInput.value = '';
+                searchInput.focus();
+            }
+            updateUrlParams();
+            updateView();
+        }
+
+        function updateView() {
+            renderTags(allSlides);
+
+            const filtered = allSlides.filter(slide => {
+                const matchesTag = activeTag === 'ALL' || (slide.tags || []).includes(activeTag);
+                const query = searchQuery.trim().toLowerCase();
+                const matchesSearch = !query || 
+                    (slide.title || '').toLowerCase().includes(query) ||
+                    (slide.description || '').toLowerCase().includes(query) ||
+                    (slide.author || '').toLowerCase().includes(query) ||
+                    (slide.tags || []).some(t => t.toLowerCase().includes(query));
+                return matchesTag && matchesSearch;
+            });
+
+            const countEl = document.getElementById('results-count');
+            countEl.textContent = `${filtered.length} KEYNOTE${filtered.length > 1 ? 'S' : ''}`;
+
+            const grid = document.getElementById('slides-grid');
+            grid.innerHTML = '';
+
+            if (filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-20 px-4">
+                        <div class="w-12 h-12 mx-auto mb-4 rounded-xl bg-[#1d1c1a] flex items-center justify-center border border-[rgba(235,233,227,0.08)] text-[#a8a29e]">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-base font-medium text-[#faf9f5] mb-2 font-serif-claude text-2xl">No presentations match your query</h3>
+                        <p class="text-sm text-[#78716c] mb-6">Try adjusting search keywords or clearing active filters.</p>
+                        <button 
+                            type="button" 
+                            onclick="resetFilters()"
+                            class="px-4 py-2 text-xs font-medium rounded-lg bg-[#262421] text-[#faf9f5] hover:bg-[#302d29] border border-[rgba(235,233,227,0.1)] transition-all"
+                        >
+                            Reset all filters
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            filtered.forEach((slide) => {
+                const card = document.createElement('a');
+                card.href = getSlideUrl(slide.folder);
+                card.className = 'claude-card p-8 rounded-2xl block group focus:outline-none focus:ring-1 focus:ring-[#d97757] flex flex-col justify-between';
+                card.setAttribute('aria-label', `View presentation: ${slide.title}`);
+
+                const slideCountLabel = slide.slidesCount ? `${slide.slidesCount} slide${slide.slidesCount > 1 ? 's' : ''}` : '';
+                const authorLabel = slide.author ? slide.author : '';
+
+                card.innerHTML = `
+                    <div class="flex flex-col flex-grow">
+                        <!-- Top Meta Header -->
+                        <div class="flex justify-between items-start mb-6">
+                            <div class="w-11 h-11 rounded-xl bg-[#262421] border border-[rgba(235,233,227,0.08)] flex items-center justify-center text-[#d97757] group-hover:border-[#d97757]/40 transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                ${slideCountLabel ? `
+                                    <span class="text-[11px] font-mono text-[#a8a29e] bg-[#262421]/60 px-2 py-0.5 rounded-md border border-[rgba(235,233,227,0.06)]">
+                                        ${slideCountLabel}
+                                    </span>
+                                ` : ''}
+
+                                <button 
+                                    type="button"
+                                    title="Copy presentation link"
+                                    aria-label="Copy presentation link"
+                                    onclick="copyPresentationLink(event, '${slide.folder}')"
+                                    class="card-action-btn p-1.5 rounded-lg"
+                                >
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Title and Description -->
+                        <h2 class="text-2xl font-normal mb-3 text-[#faf9f5] font-serif-claude group-hover:text-[#e28768] transition-colors leading-snug">
+                            ${slide.title}
+                        </h2>
+
+                        <p class="text-[#a8a29e] text-sm leading-relaxed mb-6 flex-grow line-clamp-3 font-light">
+                            ${slide.description || 'Keynote presentation'}
+                        </p>
+
+                        <!-- Author & Date Line -->
+                        <div class="flex items-center justify-between text-xs text-[#78716c] font-light mb-4">
+                            <span>${authorLabel || 'Research'}</span>
+                            <span class="font-mono text-[11px]">${slide.date || '2026'}</span>
+                        </div>
+
+                        <!-- Tags Footer -->
+                        <div class="flex flex-wrap gap-2 pt-4 border-t border-[rgba(235,233,227,0.06)]">
+                            ${(slide.tags || []).map(tag => `
+                                <span class="text-[11px] font-medium tracking-wide px-2.5 py-0.5 bg-[#262421] text-[#cec9bf] border border-[rgba(235,233,227,0.08)] rounded-md group-hover:border-[#d97757]/20 transition-colors">
+                                    ${tag}
+                                </span>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        async function loadSlides() {
+            try {
+                const response = await fetch('./slides.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status} loading slides.json`);
+                }
+                allSlides = await response.json();
+                readUrlParams();
+                updateView();
+            } catch (err) {
+                console.error('Failed to load slides metadata:', err);
+                const grid = document.getElementById('slides-grid');
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-16 px-4">
+                        <p class="text-[#e28768] font-serif-claude text-xl mb-1">Catalog unreachable</p>
+                        <p class="text-xs text-[#78716c]">Check that slides.json is generated.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Search Input listener
+        const searchInput = document.getElementById('search-input');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                searchQuery = e.target.value;
+                updateUrlParams();
+                updateView();
+            });
+        }
+
+        // Keyboard navigation shortcuts
+        window.addEventListener('keydown', (e) => {
+            // Press "/" to focus search
+            if (e.key === '/' && document.activeElement !== searchInput) {
+                e.preventDefault();
+                if (searchInput) {
+                    searchInput.focus();
+                    searchInput.select();
+                }
+            }
+            // Press "Escape" to clear search and blur
+            if (e.key === 'Escape') {
+                if (searchQuery || (searchInput && searchInput.value)) {
+                    resetFilters();
+                }
+                if (searchInput) searchInput.blur();
+            }
+        });
+
         loadSlides();
     </script>
 </body>

@@ -1,11 +1,18 @@
 [
   {
-    "title": "Bienvenue sur mon Slide Desk 🚀",
+    "title": "Claude 3.5 Sonnet Architecture",
     "folder": "demo-presentation",
-    "description": "Présentation Bienvenue sur mon Slide Desk 🚀",
+    "description": "Technical overview and frontier intelligence benchmarks.",
     "date": "October 2026",
     "tags": [
-      "Slidev"
-    ]
+      "Anthropic",
+      "Frontier Models",
+      "Architecture"
+    ],
+    "author": "Anthropic Research",
+    "theme": "default",
+    "slidesCount": 3,
+    "cover": "",
+    "order": 1
   }
 ]
