@@ -13,7 +13,6 @@
             color: #f8fafc;
             overflow-x: hidden;
         }
-
         .glow {
             position: absolute;
             width: 400px;
@@ -23,7 +22,6 @@
             z-index: -1;
             filter: blur(60px);
         }
-
         .glass-card {
             background: rgba(30, 41, 59, 0.4);
             backdrop-filter: blur(12px);
@@ -31,20 +29,17 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
         }
-
         .glass-card:hover {
             background: rgba(51, 65, 85, 0.6);
             border-color: rgba(129, 140, 248, 0.5);
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(129, 140, 248, 0.2);
         }
-
         .text-gradient {
             background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .accent-gradient {
             background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
             -webkit-background-clip: text;
@@ -69,16 +64,22 @@
             </p>
         </header>
 
-        <div id="slides-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        </div>
+        <div id="slides-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
     </div>
 
     <script>
+        // 1. DÉTECTION AUTOMATIQUE DU CHEMIN
+        // On récupère le chemin actuel (ex: /mon-pseudo.github.io/mon-repo/)
+        const pathParts = window.location.pathname.split('/');
+        // Le nom du repo est généralement le deuxième segment après le domaine
+        const repoName = pathParts[1] || '';
+        const baseUrl = repoName ? '/' + repoName + '/' : '/';
+
         const slides = [
             {
                 title: "Présentation Démo",
                 description: "Exploration des capacités de Slidev et intégration du portail cosmic.",
-                path: "/my-slidesk/demo-presentation/",
+                folder: "demo-presentation", // On met juste le nom du dossier
                 date: "Octobre 2026",
                 tags: ["Architecture", "Design"]
             },
@@ -88,7 +89,8 @@
 
         slides.forEach(slide => {
             const card = document.createElement('a');
-            card.href = slide.path;
+            // On construit l'URL dynamiquement : /repo/dossier/
+            card.href = baseUrl + slide.folder + '/';
             card.className = 'glass-card p-8 rounded-3xl block group';
 
             card.innerHTML = \`
@@ -99,10 +101,10 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 12h18M3 5h18M3 19h18"></path>
                             </svg>
                         </div>
-                        <span class="text-xs font-medium text-slate-500">${slide.date}</span>
+                        <span class="text-xs font-medium text-slate-500">\${slide.date}</span>
                     </div>
-                    <h2 class="text-2xl font-bold mb-3 text-white group-hover:text-indigo-300 transition-colors">${slide.title}</h2>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">${slide.description}</p>
+                    <h2 class="text-2xl font-bold mb-3 text-white group-hover:text-indigo-300 transition-colors">\${slide.title}</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">\${slide.description}</p>
                     <div class="flex flex-wrap gap-2">
                         \${slide.tags.map(tag => \`<span class="text-[10px] uppercase tracking-wider px-2 py-1 bg-white/5 text-slate-300 border border-white/10 rounded-md">\${tag}</span>\`).join('')}
                     </div>
