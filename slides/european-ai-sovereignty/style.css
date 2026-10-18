@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap');
 
 :root {
   --slidev-theme-primary: #d97757;
@@ -10,10 +10,10 @@
   background-color: #141413 !important;
   color: #cec9bf !important;
   font-family: 'Inter', -apple-system, sans-serif;
-  padding: 3rem 4rem !important;
+  padding: 3rem 4.5rem !important;
 }
 
-/* Typography */
+/* Slide Typography */
 h1, h2, h3, h4 {
   font-family: 'Newsreader', Georgia, serif !important;
   color: #faf9f5 !important;
@@ -23,19 +23,20 @@ h1, h2, h3, h4 {
 h1 {
   font-size: 3.25rem !important;
   font-weight: 400 !important;
-  line-height: 1.15 !important;
+  line-height: 1.1 !important;
   margin-bottom: 0.5rem !important;
 }
 
 h2 {
-  font-size: 2.5rem !important;
+  font-size: 2.25rem !important;
   font-weight: 400 !important;
+  color: #faf9f5 !important;
   margin-bottom: 0.5rem !important;
 }
 
 h3 {
-  font-size: 1.25rem !important;
-  font-weight: 500 !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
   color: #e28768 !important;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -43,22 +44,22 @@ h3 {
   margin-bottom: 1.25rem !important;
 }
 
-/* Slide number pill (rendered from markdown inline code) */
+/* Slide number pill (from markdown code syntax) */
 code {
-  background-color: rgba(217, 119, 87, 0.12) !important;
+  background-color: rgba(217, 119, 87, 0.14) !important;
   color: #e28768 !important;
-  border: 1px solid rgba(217, 119, 87, 0.25) !important;
+  border: 1px solid rgba(217, 119, 87, 0.3) !important;
   font-family: 'Inter', monospace !important;
-  font-size: 0.75rem !important;
+  font-size: 0.8rem !important;
   font-weight: 600 !important;
-  padding: 0.2rem 0.6rem !important;
+  padding: 0.25rem 0.75rem !important;
   border-radius: 9999px !important;
   letter-spacing: 0.08em !important;
   display: inline-block;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 
-/* List styling - Transforms keywords into architectural cards */
+/* Punchy keyword list */
 ul {
   list-style: none !important;
   padding-left: 0 !important;
@@ -70,11 +71,17 @@ ul {
 li {
   background-color: #1d1c1a;
   border: 1px solid rgba(235, 233, 227, 0.08);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 0.75rem 1.25rem;
   font-size: 1.05rem;
   color: #faf9f5;
   transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+li:hover {
+  border-color: rgba(217, 119, 87, 0.4);
+  background-color: #242220;
 }
 
 li strong {
@@ -82,31 +89,101 @@ li strong {
   font-weight: 600;
 }
 
-/* Subtitle and quotes */
-p {
-  color: #a8a29e;
-  font-size: 1.15rem;
-  line-height: 1.6;
+li code {
+  margin-bottom: 0 !important;
+  font-size: 1rem !important;
+  padding: 0.4rem 1rem !important;
 }
 
+/* Giant shock metric for center layouts */
+.slidev-layout.center h2 {
+  font-size: 5.5rem !important;
+  color: #e28768 !important;
+  margin: 0.5rem 0 !important;
+  font-family: 'Newsreader', serif !important;
+  line-height: 1 !important;
+}
+
+/* Beautiful Markdown Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: #1d1c1a;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(235, 233, 227, 0.08);
+}
+
+th {
+  background-color: #262421;
+  color: #e28768;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid rgba(235, 233, 227, 0.08);
+  text-align: left;
+}
+
+td {
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid rgba(235, 233, 227, 0.04);
+  color: #faf9f5;
+  font-size: 0.95rem;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Blockquotes */
 blockquote {
   background-color: #1d1c1a;
   border-left: 3px solid #d97757 !important;
-  border-radius: 0 10px 10px 0;
-  padding: 1.25rem 1.5rem !important;
+  border-radius: 0 12px 12px 0;
+  padding: 1.5rem !important;
   color: #faf9f5 !important;
   font-family: 'Newsreader', Georgia, serif;
   font-size: 1.35rem !important;
   font-style: italic;
-  margin-top: 1rem;
+  margin: 1.25rem 0;
 }
 
 blockquote p {
   color: #faf9f5 !important;
+  margin: 0 !important;
 }
 
-/* Two-column layout spacing */
+/* Two-column layout */
 .slidev-layout.two-cols {
-  gap: 3rem;
+  gap: 3.5rem;
   align-items: center;
+}
+
+/* Center layout */
+.slidev-layout.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.slidev-layout.center ul {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Mermaid Diagrams in Dark Mode */
+.mermaid {
+  background-color: #1d1c1a !important;
+  border: 1px solid rgba(235, 233, 227, 0.08);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-top: 1rem;
 }
