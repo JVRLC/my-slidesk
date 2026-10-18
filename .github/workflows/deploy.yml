@@ -1,4 +1,4 @@
-name: Deploy Slidev Desk
+name: Deploy Slide Desk
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -20,44 +20,11 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm install
 
-      - name: Build all presentations
-        run: |
-          mkdir -p dist
-          cp index.html dist/
-
-          # 1. Générer le fichier slides.json automatiquement
-          echo "[]" > dist/slides.json
-
-          for dir in slides/*/; do
-            if [ -d "$dir" ]; then
-              dir_name=$(basename "$dir")
-              echo "Building $dir_name..."
-
-              # On extrait le titre depuis le premier H1 du fichier slides.md
-              TITLE=$(grep '^# ' "$dir/slides.md" | head -n 1 | sed 's/^# //')
-              [ -z "$TITLE" ] && TITLE=$dir_name
-
-              # On crée une entrée JSON pour cette slide
-              # Note: On utilise un format simple pour le JSON
-              echo "{\"title\": \"$TITLE\", \"folder\": \"$dir_name\", \"description\": \"Présentation $TITLE\", \"date\": \"$(date +'%B %Y')\", \"tags\": [\"Slidev\"]}" >> slides_tmp.json
-
-              # Build de la slide
-              npx slidev build "$dir/slides.md" --base "/my-slidesk/$dir_name/" --out "$GITHUB_WORKSPACE/dist/$dir_name"
-            fi
-          done
-
-          # Convertir la liste temporaire en un vrai tableau JSON
-          # On utilise jq si disponible, sinon une astuce sed/awk
-          if command -v jq >/dev/null 2>&1; then
-            jq -s '.' slides_tmp.json > dist/slides.json
-          else
-            # Fallback minimaliste si jq n'est pas là
-            sed 's/$/,/' slides_tmp.json | sed '$ s/,$//' | sed 's/^/[\n/' | sed '$ s/$/\n]/' > dist/slides.json
-          fi
-          rm -f slides_tmp.json
+      - name: Build portal and presentations
+        run: node scripts/build.mjs --base-prefix "/${{ github.event.repository.name }}/"
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
