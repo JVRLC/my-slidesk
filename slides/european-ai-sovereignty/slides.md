@@ -6,8 +6,7 @@ tags: [Geopolitics, AI Sovereignty, Cloud, Open Source]
 author: Serigne
 date: September 2026
 order: 1
-background: '#141413'
-layout: center
+layout: two-cols
 ---
 
 `01 / 06`
@@ -16,17 +15,22 @@ layout: center
 
 Breaking the Cloud Monopoly
 
-## 80%
+### Core Shock
 
-### European Enterprise Data on US Cloud
+- **80%** US Cloud Dominance
+- **Hostage Data**
+- **Monopoly Lock-In**
+- **US Cloud Act**
 
-- `Hostage Data`
-- `Monopoly Lock-In`
-- `US Cloud Act`
-- `Silent Vulnerability`
+::right::
+
+![Global Cloud Dependency](./images/slide1-cloud.jpg)
 
 <!--
-Look around you. Every email we send, every document we store, every hospital record in Europe sits on servers owned by three American companies. 80% of our enterprise data is on US clouds, subject to the US Cloud Act without European court oversight. Today, I want to convince you that breaking this monopoly is not an option—it is Europe's fight for independence.
+Presenter Notes (0:00 - 0:50):
+- Hook: Look around you. Every email we send, every document we store, every hospital record in Europe sits on servers owned by three American companies.
+- 80% of European data is on US clouds, subject to the US Cloud Act without European court oversight.
+- Today, I will convince you that breaking this monopoly is not an option—it is Europe's fight for independence.
 -->
 
 ---
@@ -37,25 +41,25 @@ layout: two-cols
 
 # The Agentic Shift
 
-From Chatbots to **Autonomous Action**
-
-```mermaid
-graph LR
-  A[Chatbots 2023] -->|Evolution| B[Agentic AI 2026]
-  B --> C[Direct Execution]
-```
-
-::right::
+From Chatbots to Autonomous Actions
 
 ### The Threat
 
-- **Hands-on-the-Wheel AI**
-- **Autonomous Takeover**
+- **Agentic AI Takeover**
+- **Direct System Execution**
 - **Sensitive Workflows**
 - **Outsourced Decisions**
 
+::right::
+
+![Autonomous AI Agents](./images/slide2-agent.jpg)
+
 <!--
-Why is this urgent in 2026? We are leaving the chatbot era. AI is becoming Agentic—autonomous software executing code, accessing bank accounts, and running supply chains. If we don't control these models, we outsource our decision-making power.
+Presenter Notes (0:50 - 1:40):
+- Tone: Serious, forward-looking.
+- Transition: Why is this urgent in 2026? We are leaving the chatbot era.
+- Explanation: AI is becoming Agentic—autonomous software executing code, accessing bank accounts, and running supply chains.
+- Core Question: If we don't control the weights and models behind these agents, we are outsourcing European decision-making.
 -->
 
 ---
@@ -66,11 +70,7 @@ layout: two-cols
 
 # The Physical Layer
 
-Compute Is Concrete, Heat, and Power
-
-> "He who controls the grid controls intelligence."
-
-::right::
+Concrete, Silicon & Gigawatts
 
 ### Physical Chokepoints
 
@@ -79,8 +79,15 @@ Compute Is Concrete, Heat, and Power
 - **Hardware Hegemony**
 - **Foreign Compute**
 
+::right::
+
+![Hyperscale Datacenter](./images/slide3-datacenter.jpg)
+
 <!--
-People talk about the cloud like it's in the sky. In reality, AI is concrete, water cooling, and gigawatts of electricity. Foreign giants consume our green European energy while all the profits and leverage stay in California. Compute must be a sovereign public utility.
+Presenter Notes (1:40 - 2:30):
+- Tone: Grounded in physical reality.
+- Insight: People talk about the cloud like it's in the sky. In reality, AI is concrete, water cooling, and gigawatts of electricity.
+- The Geopolitical Risk: Foreign giants consume our green European energy while all the profits and leverage stay in California. Compute must be a sovereign public utility.
 -->
 
 ---
@@ -91,47 +98,53 @@ layout: two-cols
 
 # Open Source Shield
 
-Proprietary Lock-in vs Open Weights
+European Models & Local Sovereign Clouds
 
-| Big Tech Black Box | European Open Weights |
-| :--- | :--- |
-| Closed Proprietary | **Mistral AI** |
-| US Jurisdiction | **Self-Hosted** |
-| Revocable Access | **Zero Lock-In** |
-
-::right::
-
-### The Arsenal
+### The Counter-Attack
 
 - **Open Source Defense**
 - **Mistral AI Frontier**
 - **Local OVH / Scaleway**
 - **Data Privacy Fortress**
-- **Code Sovereignty**
+- **Zero Lock-In**
+
+::right::
+
+![Open Source Security](./images/slide4-opensource.jpg)
 
 <!--
-Is it too late? Absolutely not. Europe's secret weapon is open source. Champions like Mistral in Paris, hosted on European clouds like Scaleway or OVH, prove that open models compete at the frontier. You own the weights, you control the data, and no foreign CEO can shut you down.
+Presenter Notes (2:30 - 3:30):
+- Tone: Optimistic, empowering.
+- Solution: Is it too late? Absolutely not. Europe's secret weapon is open source.
+- Concrete examples: Champions like Mistral in Paris, hosted on European clouds like Scaleway or OVH, prove that open models compete at the frontier. You own the weights, you control the data, and no foreign CEO can shut you down.
 -->
 
 ---
-layout: center
+layout: two-cols
 ---
 
 `05 / 06`
 
 # Strategic Crossroads
 
-## Vassal or Master?
+Digital Colony or Tech Powerhouse?
 
-Digital Colony vs Sovereign Continent
+### The Choice
 
-- `Digital Vassal`
-- `Technological Master`
-- `Brain Drain Crisis`
-- `The Turning Point`
+- **Digital Vassal**
+- **Technological Master**
+- **Brain Drain Crisis**
+- **Action**
+
+::right::
+
+![European Future](./images/slide5-crossroads.jpg)
 
 <!--
-This is not a debate for IT geeks. It is the defining geopolitical choice of our decade. Will Europe remain a digital colony, paying perpetual rent to foreign monopolies and watching our best minds leave for California? Or will we fund our own infrastructure and keep our best engineers? Sovereignty is the freedom to choose our own future.
+Presenter Notes (3:30 - 4:20):
+- Tone: Inspiring call to action, strong eye contact with classmates.
+- Conclusion: This debate is not just for computer scientists. It is the defining geopolitical choice of our decade.
+- Direct appeal: Will Europe remain a digital colony paying rent to foreign monopolies, or will we fund our own infrastructure and keep our best engineers? Sovereignty is the freedom to choose our own future.
 -->
 
 ---
@@ -142,25 +155,25 @@ layout: two-cols
 
 # References & Debate
 
-Sources and Critical Discussion
+Sources & Classroom Discussion
 
 ### Documented Sources
 
 - **European Commission** · AI Act & Cloud Strategy
-- **Financial Times** · The European Cloud Dilemma
-- **Gartner Research** · Agentic AI Enterprise Shift
-- **Mistral AI & OVH** · Sovereign Compute Papers
+- **Financial Times** · Europe's Cloud Dilemma
+- **Gartner** · Enterprise Agentic AI (2026)
+- **Mistral AI** · Sovereign Compute Papers
 
 ::right::
 
-### The Big Debate
+![Classroom Debate](./images/slide6-debate.jpg)
 
-> Should European universities and hospitals be **legally banned** from using foreign proprietary AI?
+### Discussion Question
 
-- **Audience Debate**
-- **Public Policy**
-- **Open vs Closed**
+> Should European public institutions be legally banned from using foreign proprietary AI?
 
 <!--
-Thank you for your attention. I’d love to hear your thoughts on this: Should our schools, universities, and hospitals be required by law to use sovereign open-source AI instead of American proprietary tools?
+Presenter Notes (4:20 - 5:00):
+- Closing: Thank you for your attention.
+- Audience engagement: Open the floor with the debate question on the slide: Should our schools, universities, and hospitals be required by law to use sovereign open-source AI instead of American proprietary tools?
 -->

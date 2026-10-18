@@ -1,189 +1,147 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --slidev-theme-primary: #d97757;
-  --slidev-theme-accents: #e28768;
+  --slidev-theme-primary: #1a73e8;
+  --slidev-theme-accents: #1967d2;
 }
 
-/* Base slide container */
+/* Base Google Slides Canvas */
 .slidev-layout {
-  background-color: #141413 !important;
-  color: #cec9bf !important;
-  font-family: 'Inter', -apple-system, sans-serif;
-  padding: 3rem 4.5rem !important;
+  background-color: #ffffff !important;
+  color: #202124 !important;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif !important;
+  padding: 2.75rem 3.5rem !important;
 }
 
-/* Slide Typography */
+/* Google Clean Typography */
 h1, h2, h3, h4 {
-  font-family: 'Newsreader', Georgia, serif !important;
-  color: #faf9f5 !important;
-  letter-spacing: -0.02em;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
+  color: #202124 !important;
+  letter-spacing: -0.03em;
+  font-weight: 700 !important;
 }
 
 h1 {
-  font-size: 3.25rem !important;
-  font-weight: 400 !important;
-  line-height: 1.1 !important;
+  font-size: 2.75rem !important;
+  line-height: 1.15 !important;
   margin-bottom: 0.5rem !important;
 }
 
 h2 {
   font-size: 2.25rem !important;
-  font-weight: 400 !important;
-  color: #faf9f5 !important;
+  line-height: 1.2 !important;
   margin-bottom: 0.5rem !important;
 }
 
 h3 {
-  font-size: 1.1rem !important;
-  font-weight: 600 !important;
-  color: #e28768 !important;
+  font-size: 0.85rem !important;
+  font-weight: 700 !important;
+  color: #1a73e8 !important;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-family: 'Inter', sans-serif !important;
-  margin-bottom: 1.25rem !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 0.75rem !important;
 }
 
-/* Slide number pill (from markdown code syntax) */
+/* Subtitles */
+p {
+  color: #5f6368 !important;
+  font-size: 1.05rem !important;
+  line-height: 1.5 !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Slide Number Pill (Google Material badge) */
 code {
-  background-color: rgba(217, 119, 87, 0.14) !important;
-  color: #e28768 !important;
-  border: 1px solid rgba(217, 119, 87, 0.3) !important;
+  background-color: #e8f0fe !important;
+  color: #1967d2 !important;
+  border: 1px solid #d2e3fc !important;
   font-family: 'Inter', monospace !important;
-  font-size: 0.8rem !important;
-  font-weight: 600 !important;
-  padding: 0.25rem 0.75rem !important;
+  font-size: 0.75rem !important;
+  font-weight: 700 !important;
+  padding: 0.25rem 0.65rem !important;
   border-radius: 9999px !important;
-  letter-spacing: 0.08em !important;
+  letter-spacing: 0.06em !important;
   display: inline-block;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
-/* Punchy keyword list */
+/* Keyword Cards (Google Material Card style) */
 ul {
   list-style: none !important;
   padding-left: 0 !important;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
 
 li {
-  background-color: #1d1c1a;
-  border: 1px solid rgba(235, 233, 227, 0.08);
+  background-color: #f8f9fa;
+  border: 1px solid #dadce0;
   border-radius: 12px;
-  padding: 0.75rem 1.25rem;
-  font-size: 1.05rem;
-  color: #faf9f5;
+  padding: 0.65rem 1.15rem;
+  font-size: 0.98rem;
+  color: #202124;
+  font-weight: 500;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.08);
 }
 
 li:hover {
-  border-color: rgba(217, 119, 87, 0.4);
-  background-color: #242220;
+  background-color: #ffffff;
+  border-color: #1a73e8;
+  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.12);
+  transform: translateX(4px);
 }
 
 li strong {
-  color: #e28768;
-  font-weight: 600;
+  color: #1a73e8;
+  font-weight: 700;
 }
 
-li code {
-  margin-bottom: 0 !important;
-  font-size: 1rem !important;
-  padding: 0.4rem 1rem !important;
-}
-
-/* Giant shock metric for center layouts */
-.slidev-layout.center h2 {
-  font-size: 5.5rem !important;
-  color: #e28768 !important;
-  margin: 0.5rem 0 !important;
-  font-family: 'Newsreader', serif !important;
+/* Giant Google Hero Metric */
+.slidev-layout h2 strong,
+.stat-metric {
+  color: #1a73e8 !important;
+  font-size: 3.5rem !important;
   line-height: 1 !important;
+  font-weight: 800 !important;
+  display: block;
+  margin: 0.5rem 0;
 }
 
-/* Beautiful Markdown Tables */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
-  background-color: #1d1c1a;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid rgba(235, 233, 227, 0.08);
-}
-
-th {
-  background-color: #262421;
-  color: #e28768;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  padding: 0.85rem 1.25rem;
-  border-bottom: 1px solid rgba(235, 233, 227, 0.08);
-  text-align: left;
-}
-
-td {
-  padding: 0.85rem 1.25rem;
-  border-bottom: 1px solid rgba(235, 233, 227, 0.04);
-  color: #faf9f5;
-  font-size: 0.95rem;
-}
-
-tr:last-child td {
-  border-bottom: none;
-}
-
-/* Blockquotes */
-blockquote {
-  background-color: #1d1c1a;
-  border-left: 3px solid #d97757 !important;
-  border-radius: 0 12px 12px 0;
-  padding: 1.5rem !important;
-  color: #faf9f5 !important;
-  font-family: 'Newsreader', Georgia, serif;
-  font-size: 1.35rem !important;
-  font-style: italic;
-  margin: 1.25rem 0;
-}
-
-blockquote p {
-  color: #faf9f5 !important;
-  margin: 0 !important;
+/* Image Framing (Google Slides Media Block) */
+.slidev-layout img {
+  border-radius: 16px !important;
+  width: 100% !important;
+  height: 380px !important;
+  object-fit: cover !important;
+  box-shadow: 0 10px 25px -5px rgba(60, 64, 67, 0.15), 0 8px 10px -6px rgba(60, 64, 67, 0.1) !important;
+  border: 1px solid #dadce0 !important;
 }
 
 /* Two-column layout */
 .slidev-layout.two-cols {
-  gap: 3.5rem;
+  gap: 3rem;
   align-items: center;
 }
 
-/* Center layout */
-.slidev-layout.center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+/* Google Blockquote */
+blockquote {
+  background-color: #f8f9fa;
+  border-left: 4px solid #1a73e8 !important;
+  border-radius: 0 12px 12px 0;
+  padding: 1rem 1.25rem !important;
+  color: #202124 !important;
+  font-size: 1.1rem !important;
+  font-style: italic;
+  margin: 1rem 0 !important;
+  border-top: 1px solid #dadce0;
+  border-right: 1px solid #dadce0;
+  border-bottom: 1px solid #dadce0;
 }
 
-.slidev-layout.center ul {
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-/* Mermaid Diagrams in Dark Mode */
-.mermaid {
-  background-color: #1d1c1a !important;
-  border: 1px solid rgba(235, 233, 227, 0.08);
-  border-radius: 12px;
-  padding: 1.25rem;
-  margin-top: 1rem;
+blockquote p {
+  color: #202124 !important;
+  margin: 0 !important;
 }
