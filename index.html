@@ -3,121 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slide Desk | Cosmic Edition</title>
+    <title>Slide Desk | Ultra Cosmic</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #818cf8;
+            --secondary: #c084fc;
+            --bg-dark: #020617;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at top right, #1e1b4b, #0f172a, #020617);
+            background-color: var(--bg-dark);
             color: #f8fafc;
             overflow-x: hidden;
             min-height: 100vh;
         }
-        .glow {
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+
+        /* Arrière-plan animé avec des orbes de couleur */
+        .bg-orb {
+            position: fixed;
+            width: 60vw;
+            height: 60vw;
             border-radius: 50%;
+            filter: blur(100px);
             z-index: -1;
-            filter: blur(80px);
+            opacity: 0.25;
+            animation: float 20s infinite alternate;
         }
+        .orb-1 { background: #4f46e5; top: -10%; left: -10%; animation-delay: 0s; }
+        .orb-2 { background: #9333ea; bottom: -10%; right: -10%; animation-delay: -5s; }
+        .orb-3 { background: #0ea5e9; top: 40%; left: 30%; animation-delay: -10s; width: 30vw; height: 30vw; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(5% , 5%) scale(1.1); }
+        }
+
+        /* Cartes Glassmorphism Ultra */
         .glass-card {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            cursor: pointer;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
         }
+
+        .glass-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            transform: translateX(-100%);
+            transition: 0.6s;
+        }
+
+        .glass-card:hover::before {
+            transform: translateX(100%);
+        }
+
         .glass-card:hover {
-            background: rgba(51, 65, 85, 0.6);
-            border-color: rgba(129, 140, 248, 0.5);
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            background: rgba(30, 41, 59, 0.7);
+            border-color: rgba(129, 140, 248, 0.4);
+            transform: translateY(-12px);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.6), 0 0 20px rgba(129, 140, 248, 0.15);
         }
+
         .text-gradient {
             background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .accent-gradient {
             background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        /* Animation d'entrée des cartes */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-card {
+            animation: fadeInUp 0.6s ease backwards;
+        }
     </style>
 </head>
 <body class="p-8 relative">
-    <div class="glow top-[-100px] right-[-100px]"></div>
-    <div class="glow bottom-[-100px] left-[-100px]"></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
 
     <div class="max-w-6xl mx-auto relative">
-        <header class="mb-20 text-center">
-            <h1 class="text-6xl font-extrabold mb-6 tracking-tight text-gradient">
+        <header class="mb-24 text-center">
+            <h1 class="text-7xl font-extrabold mb-8 tracking-tighter text-gradient">
                 Slide <span class="accent-gradient">Desk</span>
             </h1>
-            <p class="text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
-                Ma bibliothèque de présentations haute définition.
+            <p class="text-slate-400 text-xl max-w-2xl mx-auto font-light leading-relaxed opacity-80">
+                Curated high-definition presentations. <br>
+                <span class="text-sm uppercase tracking-widest text-indigo-400 font-semibold">Design & Clarity</span>
             </p>
         </header>
 
-        <div id="slides-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Généré dynamiquement via slides.json -->
+        <div id="slides-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <!-- Généré dynamiquement -->
         </div>
     </div>
 
     <script>
         async function loadSlides() {
             try {
-                // On récupère le nom du repo depuis l'URL
                 const pathParts = window.location.pathname.split('/');
                 const repoName = pathParts[1] || 'my-slidesk';
                 const baseUrl = '/' + repoName + '/';
 
-                // On fetch le fichier JSON généré par GitHub Actions
                 const response = await fetch(baseUrl + 'slides.json');
                 const slides = await response.json();
 
                 const grid = document.getElementById('slides-grid');
 
                 if (!slides || slides.length === 0) {
-                    grid.innerHTML = '<p class="text-center col-span-full text-slate-500">Aucune présentation disponible pour le moment.</p>';
+                    grid.innerHTML = '<p class="text-center col-span-full text-slate-500 italic">Aucune présentation disponible.</p>';
                     return;
                 }
 
-                slides.forEach(slide => {
+                slides.forEach((slide, index) => {
                     const card = document.createElement('a');
-                    // Le lien est maintenant : /repo/nom-du-dossier/
                     card.href = baseUrl + slide.folder + '/';
-                    card.className = 'glass-card p-8 rounded-3xl block group';
+                    card.className = 'glass-card p-8 rounded-[2rem] block group animate-card';
+                    card.style.animationDelay = (index * 0.1) + 's';
 
                     card.innerHTML = \`
                         <div class="flex flex-col h-full">
-                            <div class="flex justify-between items-start mb-6">
-                                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div class="flex justify-between items-start mb-8">
+                                <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-700 flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">
+                                    <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 12h18M3 5h18M3 19h18"></path>
                                     </svg>
                                 </div>
-                                <span class="text-xs font-medium text-slate-500">\${slide.date || 'Sans date'}</span>
+                                <span class="text-xs font-medium text-slate-500 tracking-tighter">\${slide.date || '2026'}</span>
                             </div>
-                            <h2 class="text-2xl font-bold mb-3 text-white group-hover:text-indigo-300 transition-colors">\${slide.title}</h2>
-                            <p class="text-slate-400 text-sm leading-relaxed mb-6 flex-grow">\${slide.description || 'Pas de description'}</p>
+                            <h2 class="text-2xl font-bold mb-4 text-white group-hover:text-indigo-300 transition-colors duration-300">\${slide.title}</h2>
+                            <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow opacity-70">\${slide.description || 'Contenu de présentation'}</p>
                             <div class="flex flex-wrap gap-2">
-                                \${(slide.tags || []).map(tag => \`<span class="text-[10px] uppercase tracking-wider px-2 py-1 bg-white/5 text-slate-300 border border-white/10 rounded-md">\${tag}</span>\`).join('')}
+                                \${(slide.tags || []).map(tag => \`<span class="text-[10px] uppercase tracking-widest px-3 py-1 bg-white/5 text-slate-400 border border-white/10 rounded-full group-hover:border-indigo-500/30 transition-colors">\${tag}</span>\`).join('')}
                             </div>
                         </div>
                     \`;
                     grid.appendChild(card);
                 });
             } catch (e) {
-                console.error("Error loading slides:", e);
-                document.getElementById('slides-grid').innerHTML = '<p class="text-center col-span-full text-red-400">Erreur lors du chargement des slides. Vérifiez le déploiement.</p>';
+                console.error(e);
+                document.getElementById('slides-grid').innerHTML = '<p class="text-center col-span-full text-red-400">Erreur de chargement.</p>';
             }
         }
-
         loadSlides();
     </script>
 </body>
