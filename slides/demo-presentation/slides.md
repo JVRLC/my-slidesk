@@ -5,7 +5,7 @@ description: Technical overview and frontier intelligence benchmarks.
 tags: [Anthropic, Frontier Models, Architecture]
 author: Anthropic Research
 date: October 2026
-order: 1
+order: 2
 background: '#141413'
 class: text-left
 highlighter: shiki
