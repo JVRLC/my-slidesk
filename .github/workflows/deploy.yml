@@ -2,7 +2,7 @@ name: Deploy Slidev Desk
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -18,20 +18,23 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
+
+      - name: Install Slidev
+        run: |
+          npm install -g npm@latest
+          npm install -g @slidev/cli
 
       - name: Build all presentations
         run: |
           mkdir -p dist
           cp index.html dist/
 
-          # Loop through each directory in slides/
           for dir in slides/*/; do
             if [ -d "$dir" ]; then
               dir_name=$(basename "$dir")
               echo "Building $dir_name..."
-              # Use npx directly without prior npm install
-              npx @slidev/cli build "$dir/slides.md" --out "dist/$dir_name"
+              slidev build "$dir/slides.md" --base "/my-slidesk/$dir_name/" --out "$GITHUB_WORKSPACE/dist/$dir_name"
             fi
           done
 
