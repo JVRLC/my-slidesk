@@ -1,8 +1,15 @@
 {
   "name": "my-slidesk",
+  "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "slidev build"
+    "dev": "slidev",
+    "dev:desk": "node scripts/build.mjs --index-only && npx serve dist -l 3000",
+    "new": "node scripts/new-presentation.mjs",
+    "build": "node scripts/build.mjs",
+    "build:index": "node scripts/build.mjs --index-only",
+    "preview": "npx serve dist -l 3000"
   },
   "dependencies": {
     "@slidev/cli": "latest",
