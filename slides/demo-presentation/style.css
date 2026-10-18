@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap');
+
+:root {
+  --slidev-theme-primary: #d97757;
+  --slidev-theme-accents: #e28768;
+}
+
+.slidev-layout {
+  background-color: #141413 !important;
+  color: #cec9bf !important;
+  font-family: 'Inter', -apple-system, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Newsreader', Georgia, serif !important;
+  color: #faf9f5 !important;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+h2 {
+  font-weight: 500;
+}
+
+/* Claude keynote card component */
+.claude-box {
+  background-color: #1d1c1a;
+  border: 1px solid rgba(235, 233, 227, 0.08);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.claude-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e28768;
+  background-color: rgba(217, 119, 87, 0.12);
+  border: 1px solid rgba(217, 119, 87, 0.25);
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+
+.metric-number {
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 3rem;
+  color: #faf9f5;
+  line-height: 1;
+}
+
+.accent-text {
+  color: #e28768;
+}
+
