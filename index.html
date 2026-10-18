@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Slide Desk</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; }
+        .slide-card {
+            transition: all 0.3s ease;
+            border: 1px solid #1e293b;
+        }
+        .slide-card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+            box-shadow: 0 10px 20px -5px rgba(56, 189, 248, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen p-8">
+    <div class="max-w-5xl mx-auto">
+        <header class="mb-12 text-center">
+            <h1 class="text-4xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+                📚 Mon Slide Desk
+            </h1>
+            <p class="text-slate-400">Toutes mes présentations Slidev au même endroit.</p>
+        </header>
+
+        <div id="slides-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Les cartes de slides seront insérées ici par JS -->
+        </div>
+    </div>
+
+    <script>
+        // Configuration de vos slides
+        const slides = [
+            {
+                title: "Présentation Démo",
+                description: "Ma première présentation faite avec Slidev pour tester le desk.",
+                path: "slides/demo-presentation/",
+                date: "2026-10-18",
+                tags: ["Demo", "Slidev"]
+            },
+            // Ajoutez vos prochaines slides ici
+        ];
+
+        const grid = document.getElementById('slides-grid');
+
+        slides.forEach(slide => {
+            const card = document.createElement('a');
+            card.href = slide.path;
+            card.className = 'slide-card bg-slate-800 p-6 rounded-2xl block';
+
+            card.innerHTML = `
+                <div class="flex flex-col h-full">
+                    <h2 class="text-xl font-bold mb-2 text-white">${slide.title}</h2>
+                    <p class="text-slate-400 text-sm mb-4 flex-grow">${slide.description}</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${slide.tags.map(tag => `<span class="text-xs px-2 py-1 bg-slate-700 text-slate-300 rounded-full">${tag}</span>`).join('')}
+                    </div>
+                    <div class="text-xs text-slate-500 mt-auto">${slide.date}</div>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    </script>
+</body>
+</html>

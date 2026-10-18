@@ -1,0 +1,45 @@
+name: Deploy Slidev Desk
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Slidev
+        run: npm install -g @slidev/cli
+
+      - name: Build all presentations
+        run: |
+          mkdir -p dist
+          cp index.html dist/
+
+          # Loop through each directory in slides/
+          for dir in slides/*/; do
+            if [ -d "$dir" ]; then
+              dir_name=$(basename "$dir")
+              echo "Building $dir_name..."
+              slidev build "$dir/slides.md" --out "dist/$dir_name"
+            fi
+          done
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
