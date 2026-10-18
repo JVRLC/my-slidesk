@@ -1,4 +1,13 @@
+# Dependencies
 node_modules/
+
+# Slidev cache and build output
 .slidev/
 dist/
+
+# OS and environment
+.DS_Store
+*.local
+
+# CI temporary files
 .github/workflows/_temp/
