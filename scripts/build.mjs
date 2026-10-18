@@ -111,9 +111,22 @@ function extractMetadata(folderName) {
     date = `${mtime.toLocaleString('en-US', { month: 'long' })} ${mtime.getFullYear()}`;
   }
 
-  // Calculate slide count based on markdown slide delimiters
-  const slideDelimiters = content.match(/^---\s*$/gm) || [];
-  const slidesCount = Math.max(1, slideDelimiters.length + 1);
+  // Calculate slide count accurately considering slide frontmatter
+  let slidesCount = 1;
+  let inSlideFrontmatter = false;
+  const contentLines = content.split(/\r?\n/);
+  for (const line of contentLines) {
+    if (line.trim() === '---') {
+      if (!inSlideFrontmatter) {
+        slidesCount++;
+        inSlideFrontmatter = true;
+      } else {
+        inSlideFrontmatter = false;
+      }
+    } else if (line.trim() !== '' && !line.includes(':')) {
+      inSlideFrontmatter = false;
+    }
+  }
 
   // Order priority (optional, default to 999)
   const order = frontmatter.order ? parseInt(frontmatter.order, 10) : 999;

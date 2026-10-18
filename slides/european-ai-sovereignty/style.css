@@ -5,65 +5,108 @@
   --slidev-theme-accents: #e28768;
 }
 
+/* Base slide container */
 .slidev-layout {
   background-color: #141413 !important;
   color: #cec9bf !important;
   font-family: 'Inter', -apple-system, sans-serif;
-  padding: 2.2rem 3rem !important;
+  padding: 3rem 4rem !important;
 }
 
-h1, h2, h3 {
+/* Typography */
+h1, h2, h3, h4 {
   font-family: 'Newsreader', Georgia, serif !important;
   color: #faf9f5 !important;
   letter-spacing: -0.02em;
 }
 
-h1 { font-weight: 400; }
-h2 { font-weight: 500; }
-
-.font-serif-claude {
-  font-family: 'Newsreader', Georgia, serif !important;
+h1 {
+  font-size: 3.25rem !important;
+  font-weight: 400 !important;
+  line-height: 1.15 !important;
+  margin-bottom: 0.5rem !important;
 }
 
-.accent-text {
+h2 {
+  font-size: 2.5rem !important;
+  font-weight: 400 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+h3 {
+  font-size: 1.25rem !important;
+  font-weight: 500 !important;
   color: #e28768 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: 'Inter', sans-serif !important;
+  margin-bottom: 1.25rem !important;
 }
 
-.claude-box {
+/* Slide number pill (rendered from markdown inline code) */
+code {
+  background-color: rgba(217, 119, 87, 0.12) !important;
+  color: #e28768 !important;
+  border: 1px solid rgba(217, 119, 87, 0.25) !important;
+  font-family: 'Inter', monospace !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+  padding: 0.2rem 0.6rem !important;
+  border-radius: 9999px !important;
+  letter-spacing: 0.08em !important;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+}
+
+/* List styling - Transforms keywords into architectural cards */
+ul {
+  list-style: none !important;
+  padding-left: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+li {
   background-color: #1d1c1a;
   border: 1px solid rgba(235, 233, 227, 0.08);
-  border-radius: 12px;
-  padding: 1.25rem 1.5rem;
+  border-radius: 10px;
+  padding: 0.75rem 1.25rem;
+  font-size: 1.05rem;
+  color: #faf9f5;
+  transition: all 0.2s ease;
 }
 
-.claude-badge {
-  display: inline-block;
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+li strong {
   color: #e28768;
-  background-color: rgba(217, 119, 87, 0.12);
-  border: 1px solid rgba(217, 119, 87, 0.25);
-  border-radius: 9999px;
-  padding: 0.2rem 0.65rem;
-  font-family: 'Inter', sans-serif;
   font-weight: 600;
 }
 
-.metric-number {
-  font-family: 'Newsreader', Georgia, serif;
-  font-size: 2.75rem;
-  color: #faf9f5;
-  line-height: 1;
+/* Subtitle and quotes */
+p {
+  color: #a8a29e;
+  font-size: 1.15rem;
+  line-height: 1.6;
 }
 
-.keyword-pill {
-  padding: 0.35rem 0.75rem;
-  border-radius: 8px;
-  background-color: #262421;
-  color: #faf9f5;
-  font-size: 0.85rem;
-  font-weight: 500;
-  border: 1px solid rgba(235, 233, 227, 0.1);
-  display: inline-block;
+blockquote {
+  background-color: #1d1c1a;
+  border-left: 3px solid #d97757 !important;
+  border-radius: 0 10px 10px 0;
+  padding: 1.25rem 1.5rem !important;
+  color: #faf9f5 !important;
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 1.35rem !important;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+blockquote p {
+  color: #faf9f5 !important;
+}
+
+/* Two-column layout spacing */
+.slidev-layout.two-cols {
+  gap: 3rem;
+  align-items: center;
 }
