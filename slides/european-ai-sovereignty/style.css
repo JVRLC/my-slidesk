@@ -2,146 +2,175 @@
 
 :root {
   --slidev-theme-primary: #1a73e8;
-  --slidev-theme-accents: #1967d2;
+  --slidev-theme-accents: #2563eb;
+  --color-slate-900: #0f172a;
+  --color-slate-800: #1e293b;
+  --color-slate-600: #475569;
+  --color-slate-200: #e2e8f0;
+  --color-slate-50: #f8fafc;
 }
 
-/* Base Google Slides Canvas */
+/* Base Canvas (Gureckis Lab / Academic Clean Minimalist) */
 .slidev-layout {
   background-color: #ffffff !important;
-  color: #202124 !important;
+  color: var(--color-slate-900) !important;
   font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif !important;
-  padding: 2.75rem 3.5rem !important;
+  padding: 2.25rem 3.5rem !important;
 }
 
-/* Google Clean Typography */
+/* Typography */
 h1, h2, h3, h4 {
   font-family: 'Plus Jakarta Sans', 'Inter', sans-serif !important;
-  color: #202124 !important;
-  letter-spacing: -0.03em;
+  color: var(--color-slate-900) !important;
+  letter-spacing: -0.025em;
   font-weight: 700 !important;
 }
 
 h1 {
-  font-size: 2.75rem !important;
+  font-size: 2.25rem !important;
   line-height: 1.15 !important;
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 0.25rem !important;
 }
 
 h2 {
-  font-size: 2.25rem !important;
+  font-size: 1.95rem !important;
   line-height: 1.2 !important;
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 0.35rem !important;
 }
 
 h3 {
   font-size: 0.85rem !important;
   font-weight: 700 !important;
-  color: #1a73e8 !important;
+  color: var(--slidev-theme-accents) !important;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-top: 1.25rem !important;
-  margin-bottom: 0.75rem !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.65rem !important;
 }
 
-/* Subtitles */
 p {
-  color: #5f6368 !important;
-  font-size: 1.05rem !important;
+  color: var(--color-slate-600) !important;
+  font-size: 1rem !important;
   line-height: 1.5 !important;
-  margin-bottom: 1rem !important;
+  margin-bottom: 0.5rem !important;
 }
 
-/* Slide Number Pill (Google Material badge) */
+/* Top Header Pill Badge (Neversink style) */
 code {
-  background-color: #e8f0fe !important;
-  color: #1967d2 !important;
-  border: 1px solid #d2e3fc !important;
+  background-color: #eff6ff !important;
+  color: #1d4ed8 !important;
+  border: 1px solid #bfdbfe !important;
   font-family: 'Inter', monospace !important;
-  font-size: 0.75rem !important;
+  font-size: 0.72rem !important;
   font-weight: 700 !important;
-  padding: 0.25rem 0.65rem !important;
+  padding: 0.2rem 0.6rem !important;
   border-radius: 9999px !important;
   letter-spacing: 0.06em !important;
   display: inline-block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.4rem;
 }
 
-/* Keyword Cards (Google Material Card style) */
+/* Two-Cols-Header Layout (Inspired by talks.gureckislab.org) */
+.slidev-layout.two-cols-header {
+  padding: 2.25rem 3.25rem !important;
+  column-gap: 2.75rem !important;
+  row-gap: 1.25rem !important;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+.col-header {
+  grid-area: 1 / 1 / 2 / 3;
+  border-bottom: 1px solid var(--color-slate-200);
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.col-left {
+  grid-area: 2 / 1 / 3 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.col-right {
+  grid-area: 2 / 2 / 3 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Media Block (Left Column image framing) */
+.col-left img,
+.slidev-layout img {
+  border-radius: 14px !important;
+  width: 100% !important;
+  max-height: 330px !important;
+  object-fit: cover !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid var(--color-slate-200) !important;
+}
+
+/* Structured Keyword Cards (Right Column) */
 ul {
   list-style: none !important;
   padding-left: 0 !important;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.6rem;
 }
 
 li {
-  background-color: #f8f9fa;
-  border: 1px solid #dadce0;
-  border-radius: 12px;
-  padding: 0.65rem 1.15rem;
-  font-size: 0.98rem;
-  color: #202124;
+  background-color: var(--color-slate-50);
+  border: 1px solid var(--color-slate-200);
+  border-radius: 10px;
+  padding: 0.65rem 1rem;
+  font-size: 0.95rem;
+  color: var(--color-slate-900);
   font-weight: 500;
   transition: all 0.2s ease;
-  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.08);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
 li:hover {
   background-color: #ffffff;
-  border-color: #1a73e8;
-  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.12);
+  border-color: var(--slidev-theme-accents);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
   transform: translateX(4px);
 }
 
 li strong {
-  color: #1a73e8;
+  color: var(--slidev-theme-accents);
   font-weight: 700;
 }
 
-/* Giant Google Hero Metric */
-.slidev-layout h2 strong,
-.stat-metric {
-  color: #1a73e8 !important;
-  font-size: 3.5rem !important;
-  line-height: 1 !important;
-  font-weight: 800 !important;
-  display: block;
-  margin: 0.5rem 0;
-}
-
-/* Image Framing (Google Slides Media Block) */
-.slidev-layout img {
-  border-radius: 16px !important;
-  width: 100% !important;
-  height: 380px !important;
-  object-fit: cover !important;
-  box-shadow: 0 10px 25px -5px rgba(60, 64, 67, 0.15), 0 8px 10px -6px rgba(60, 64, 67, 0.1) !important;
-  border: 1px solid #dadce0 !important;
-}
-
-/* Two-column layout */
-.slidev-layout.two-cols {
-  gap: 3rem;
-  align-items: center;
-}
-
-/* Google Blockquote */
+/* Callout / Debate quote */
 blockquote {
-  background-color: #f8f9fa;
-  border-left: 4px solid #1a73e8 !important;
-  border-radius: 0 12px 12px 0;
-  padding: 1rem 1.25rem !important;
-  color: #202124 !important;
-  font-size: 1.1rem !important;
+  background-color: var(--color-slate-50);
+  border-left: 4px solid var(--slidev-theme-accents) !important;
+  border-radius: 0 10px 10px 0;
+  padding: 0.85rem 1.15rem !important;
+  color: var(--color-slate-900) !important;
+  font-size: 1.05rem !important;
   font-style: italic;
-  margin: 1rem 0 !important;
-  border-top: 1px solid #dadce0;
-  border-right: 1px solid #dadce0;
-  border-bottom: 1px solid #dadce0;
+  margin: 0.75rem 0 !important;
+  border-top: 1px solid var(--color-slate-200);
+  border-right: 1px solid var(--color-slate-200);
+  border-bottom: 1px solid var(--color-slate-200);
 }
 
 blockquote p {
-  color: #202124 !important;
+  color: var(--color-slate-900) !important;
   margin: 0 !important;
+}
+
+/* Clickable Links */
+a {
+  color: var(--slidev-theme-accents) !important;
+  text-decoration: underline;
+  font-weight: 600;
+}
+a:hover {
+  color: #1d4ed8 !important;
 }
