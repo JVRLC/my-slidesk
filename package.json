@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@slidev/cli": "latest",
-    "@slidev/theme-default": "latest"
+    "@slidev/theme-default": "latest",
+    "slidev-theme-neversink": "^0.4.1"
   }
 }

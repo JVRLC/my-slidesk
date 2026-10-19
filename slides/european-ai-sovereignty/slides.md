@@ -1,24 +1,27 @@
 ---
-theme: default
+theme: neversink
 title: European AI Sovereignty
 description: Breaking cloud monopoly with agentic AI and open source infrastructure.
 tags: [Geopolitics, AI Sovereignty, Cloud, Open Source]
 author: Serigne
 date: September 2026
 order: 1
-layout: two-cols-header
+layout: top-title-two-cols
+color: navy
+columns: is-6
+align: l-lt-lt
 ---
 
-`01 / 06 · GEOPOLITICS`
+:: title ::
 
-# European AI Sovereignty
+# European AI Sovereignty · 01 / 06
 Breaking the Cloud Monopoly
 
-::left::
+:: left ::
 
 ![Global Cloud Dependency](./images/slide1-cloud.jpg)
 
-::right::
+:: right ::
 
 ### Core Shock
 
@@ -35,19 +38,22 @@ Presenter Notes (0:00 - 0:50 | 50s):
 -->
 
 ---
-layout: two-cols-header
+layout: top-title-two-cols
+color: navy
+columns: is-6
+align: l-lt-lt
 ---
 
-`02 / 06 · TECHNOLOGY`
+:: title ::
 
-# The Agentic Shift
+# The Agentic Shift · 02 / 06
 From Chatbots to Autonomous Actions
 
-::left::
+:: left ::
 
 ![Autonomous AI Agents](./images/slide2-agent.jpg)
 
-::right::
+:: right ::
 
 ### The Threat
 
@@ -65,19 +71,22 @@ Presenter Notes (0:50 - 1:40 | 50s):
 -->
 
 ---
-layout: two-cols-header
+layout: top-title-two-cols
+color: navy
+columns: is-6
+align: l-lt-lt
 ---
 
-`03 / 06 · INFRASTRUCTURE`
+:: title ::
 
-# The Physical Layer
+# The Physical Layer · 03 / 06
 Concrete, Silicon & Gigawatts
 
-::left::
+:: left ::
 
 ![Hyperscale Datacenter](./images/slide3-datacenter.jpg)
 
-::right::
+:: right ::
 
 ### Physical Chokepoints
 
@@ -94,19 +103,22 @@ Presenter Notes (1:40 - 2:30 | 50s):
 -->
 
 ---
-layout: two-cols-header
+layout: top-title-two-cols
+color: navy
+columns: is-6
+align: l-lt-lt
 ---
 
-`04 / 06 · SOLUTIONS`
+:: title ::
 
-# Open Source Shield
+# Open Source Shield · 04 / 06
 European Models & Local Sovereign Clouds
 
-::left::
+:: left ::
 
 ![Open Source Security](./images/slide4-opensource.jpg)
 
-::right::
+:: right ::
 
 ### The Counter-Attack
 
@@ -124,19 +136,22 @@ Presenter Notes (2:30 - 3:30 | 60s):
 -->
 
 ---
-layout: two-cols-header
+layout: top-title-two-cols
+color: navy
+columns: is-6
+align: l-lt-lt
 ---
 
-`05 / 06 · STRATEGY`
+:: title ::
 
-# Strategic Crossroads
+# Strategic Crossroads · 05 / 06
 Digital Colony or Tech Powerhouse?
 
-::left::
+:: left ::
 
 ![European Future](./images/slide5-crossroads.jpg)
 
-::right::
+:: right ::
 
 ### The Choice
 
@@ -153,30 +168,31 @@ Presenter Notes (3:30 - 4:20 | 50s):
 -->
 
 ---
-layout: two-cols-header
+layout: top-title-two-cols
+color: navy
+columns: is-6
+align: l-lt-lt
 ---
 
-`06 / 06 · SOURCES & DEBATE`
+:: title ::
 
-# References & Debate
+# References & Debate · 06 / 06
 Sources & Classroom Discussion
 
-::left::
+:: left ::
 
 ![Classroom Debate](./images/slide6-debate.jpg)
 
-::right::
+:: right ::
 
 ### Documented Sources
 
-- [European Commission](https://digital-strategy.ec.europa.eu) · AI Act & Cloud Strategy
+- [European Commission](https://digital-strategy.ec.europa.eu) · AI Act
 - [Financial Times](https://www.ft.com) · Europe's Cloud Dilemma
-- [Gartner Research](https://www.gartner.com) · Enterprise Agentic AI (2026)
+- [Gartner Research](https://www.gartner.com) · Enterprise Agentic AI
 - [Mistral AI](https://mistral.ai) · Sovereign Compute Papers
 
-### Discussion Question
-
-> Should European public institutions be legally banned from using foreign proprietary AI?
+> "Should European public institutions be legally banned from using foreign proprietary AI?"
 
 <!--
 Presenter Notes (4:20 - 5:00 | 40s):
