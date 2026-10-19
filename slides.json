@@ -1,18 +1,19 @@
 [
   {
-    "title": "Promotion de l'ENSAR — COMM-202",
+    "title": "COMM-202 — Promotion de l'ENSAR",
     "folder": "comm-202",
-    "description": "Repenser l'attractivité, moderniser les outils et propulser la JPO 2027.",
-    "date": "Octobre 2026",
+    "description": "Pitch 180s pour la promotion de l'ENSAR sur les salons et la JPO.",
+    "date": "20 octobre 2026",
     "tags": [
       "ENSAR",
       "Communication",
       "JPO",
-      "Promotion"
+      "Promotion",
+      "Pitch180s"
     ],
     "author": "Paul Berthaut, Ahmat Saleh, Serigne Mbaye",
     "theme": "default",
-    "slidesCount": 2,
+    "slidesCount": 7,
     "cover": "",
     "order": 1
   },
