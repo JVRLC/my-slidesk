@@ -51,6 +51,24 @@
     "order": 1
   },
   {
+    "title": "The Invisible Thirst of AI",
+    "folder": "the-thirst-of-ai",
+    "description": "The Secret Water Crisis Behind Every Search. A 5-minute persuasive briefing.",
+    "date": "October 2026",
+    "tags": [
+      "AI",
+      "Climate",
+      "Water Crisis",
+      "Technology",
+      "Environment"
+    ],
+    "author": "Serigne",
+    "theme": "default",
+    "slidesCount": 7,
+    "cover": "",
+    "order": 1
+  },
+  {
     "title": "Claude 3.5 Sonnet Architecture",
     "folder": "demo-presentation",
     "description": "Technical overview and frontier intelligence benchmarks.",
