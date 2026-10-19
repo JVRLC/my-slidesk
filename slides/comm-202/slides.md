@@ -85,3 +85,4 @@ Nous allons métamorphoser la Journée Portes Ouvertes :
 "En conclusion : l'excellence académique de l'ENSAR mérite une visibilité à sa hauteur. Avec COMM-202, nous faisons de l'ENSAR un choix d'évidence et de fierté pour les futurs ingénieurs de demain.
 Merci de votre attention, nous sommes désormais à l'écoute de vos questions !"
 -->
+
