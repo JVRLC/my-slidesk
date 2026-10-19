@@ -1,5 +1,22 @@
 [
   {
+    "title": "Promotion de l'ENSAR — COMM-202",
+    "folder": "comm-202",
+    "description": "Repenser l'attractivité, moderniser les outils et propulser la JPO 2027.",
+    "date": "Octobre 2026",
+    "tags": [
+      "ENSAR",
+      "Communication",
+      "JPO",
+      "Promotion"
+    ],
+    "author": "Paul Berthaut, Ahmat Saleh, Serigne Mbaye",
+    "theme": "default",
+    "slidesCount": 2,
+    "cover": "",
+    "order": 1
+  },
+  {
     "title": "European AI Sovereignty",
     "folder": "european-ai-sovereignty",
     "description": "Breaking cloud monopoly with agentic AI and open source infrastructure.",
