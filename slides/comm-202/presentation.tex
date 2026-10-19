@@ -1,0 +1,333 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% ============================================================
+% PAQUETS ET LANGUE
+% ============================================================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{fontawesome5}
+\usepackage{booktabs}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+% ============================================================
+% COULEURS
+% ============================================================
+\definecolor{ensarorange}{HTML}{E8630A}
+\definecolor{ensardark}{HTML}{2C3E50}
+\definecolor{ensargray}{HTML}{95A5A6}
+\definecolor{ensarlight}{HTML}{F8F9FA}
+
+% ============================================================
+% STYLE BEAMER (MARGES RÉDUITES)
+% ============================================================
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}{}
+\setbeamertemplate{headline}{}
+
+\setbeamersize{
+    text margin left=0.6cm,
+    text margin right=0.6cm
+}
+
+\setbeamercolor{normal text}{fg=ensardark}
+\setbeamercolor{frametitle}{fg=ensardark,bg=white}
+
+% Titre des diapositives : hauteur réduite + correction d'espace
+\setbeamertemplate{frametitle}{
+    \nointerlineskip
+    \begin{beamercolorbox}[
+        wd=\paperwidth,
+        ht=0.7cm,
+        dp=0cm,
+        leftskip=0.6cm
+    ]{frametitle}
+        \textbf{\large\insertframetitle}
+    \end{beamercolorbox}
+    {\color{ensarorange}\rule{\paperwidth}{1.2pt}}
+    \vspace{-0.25cm} % Gagne de la place sous le titre
+}
+
+% ============================================================
+% STYLE DES CARTES ET LISTES
+% ============================================================
+\newtcolorbox{card}{
+    colback=ensarlight,
+    colframe=white,
+    boxrule=0pt,
+    arc=4pt,
+    left=5pt,
+    right=5pt,
+    top=4pt,
+    bottom=4pt
+}
+
+\setlist[itemize]{
+    label=\textcolor{ensarorange}{\textbullet},
+    leftmargin=1em,
+    itemsep=0.2em,
+    topsep=0.1em
+}
+
+% Supprimer les espacements parasites
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+
+% ============================================================
+% DÉBUT DU DOCUMENT
+% ============================================================
+\begin{document}
+
+% ============================================================
+% SLIDE 1 : PAGE DE GARDE (COMPACTE)
+% ============================================================
+\begin{frame}[plain]
+    \begin{tikzpicture}[remember picture,overlay]
+        \fill[ensarorange] (current page.north west) rectangle ([xshift=0.3cm]current page.south west);
+    \end{tikzpicture}
+    
+    \vspace*{0.3cm}
+    \begin{flushleft}
+        \hspace*{0.8cm}
+        \IfFileExists{logo_ensar.png}{
+            \includegraphics[width=0.14\linewidth]{logo_ensar.png}
+        }{
+            {\color{ensargray}\small Logo ENSAR}
+        }
+    \end{flushleft}
+    
+    \vspace{0.6cm}
+    \begin{flushleft}
+        \hspace*{0.8cm}
+        {\color{ensargray}\large \textsc{Présentation en 180s}}\\[0.2cm]
+        {\color{ensardark}\fontsize{32}{38}\selectfont \textbf{PROJET COMM-202}}\\[0.2cm]
+        {\color{ensarorange}\Large Promotion de l'ENSAR sur les salons et la JPO}\\[0.1cm]
+        {\color{ensarorange}\rule{5cm}{1.2pt}}
+    \end{flushleft}
+    
+    \vspace{0.4cm}
+    \begin{flushleft}
+        \hspace*{0.8cm}
+        \begin{minipage}{0.45\textwidth}
+            {\color{ensarorange}\textbf{\footnotesize ÉQUIPE PROJET (MOE)}}\\[0.05cm]
+            {\color{ensardark}\small Paul Berthaut\\[0.02cm]
+            Ahmat Saleh\\[0.02cm]
+            Serigne Mbaye}
+        \end{minipage}
+        \begin{minipage}{0.45\textwidth}
+            {\color{ensarorange}\textbf{\footnotesize COMMANDITAIRES (MOA)}}\\[0.05cm]
+            {\color{ensardark}\small Direction ENSAR\\[0.02cm]
+            BDE}
+        \end{minipage}
+    \end{flushleft}
+    
+    \vfill
+    \begin{flushright}
+        {\color{ensargray}\scriptsize 20 octobre 2026 }
+        \hspace*{0.8cm}
+    \end{flushright}
+\end{frame}
+
+% ============================================================
+% SLIDE 2 : LE CONSTAT ET L'AMBITION
+% ============================================================
+\begin{frame}[shrink=15]{Le constat et l'ambition}
+    \textbf{\small\color{ensargray} POURQUOI CE PROJET ?}
+    \vspace{0.1cm}
+
+    \begin{columns}[T]
+        \begin{column}{0.31\textwidth}
+            \begin{card}
+                \centering
+                {\Large\color{ensarorange}\faIcon{times-circle}}\\[0.05cm]
+                \textbf{\footnotesize JPO}\\[0.02cm]
+                {\scriptsize Faible affluence l'après-midi.}
+            \end{card}
+        \end{column}
+
+        \begin{column}{0.31\textwidth}
+            \begin{card}
+                \centering
+                {\Large\color{ensarorange}\faIcon{file-alt}}\\[0.05cm]
+                \textbf{\footnotesize Supports}\\[0.02cm]
+                {\scriptsize Plaquette ALPHA à moderniser.}
+            \end{card}
+        \end{column}
+
+        \begin{column}{0.31\textwidth}
+            \begin{card}
+                \centering
+                {\Large\color{ensarorange}\faIcon{users}}\\[0.05cm]
+                \textbf{\footnotesize Cibles}\\[0.02cm]
+                {\scriptsize Lycéens, prépas, BUT.}
+            \end{card}
+        \end{column}
+    \end{columns}
+
+    \vspace{0.2cm}
+
+    \begin{tcolorbox}[
+        colback=white,
+        colframe=ensarorange,
+        boxrule=1pt,
+        arc=2pt,
+        left=6pt,
+        right=6pt,
+        top=4pt,
+        bottom=4pt,
+        colbacktitle=ensarorange,
+        coltitle=white,
+        title={\textbf{L'AMBITION DE L'ÉCOLE}},
+        fonttitle=\footnotesize\bfseries\sffamily
+    ]
+        \begin{columns}[c]
+            \begin{column}{0.75\textwidth}
+                {\scriptsize \textbf{Une école jeune à faire connaître :}}\\[0.02cm]
+                {\scriptsize Renforcer notre visibilité pour attirer les futurs bacheliers, les élèves de classes préparatoires et les étudiants Post BUT.}
+            \end{column}
+            \begin{column}{0.25\textwidth}
+                \centering
+                {\large\color{ensarorange}\faIcon{school}}
+            \end{column}
+        \end{columns}
+    \end{tcolorbox}
+\end{frame}
+
+% ============================================================
+% SLIDE 3 : NOS TROIS PILIERS D'ACTION
+% ============================================================
+\begin{frame}[shrink=10]{Nos 3 piliers d'action}
+    \vspace{0.2cm}
+    \begin{columns}[T]
+        \begin{column}{0.31\textwidth}
+            \centering
+            {\Large\color{ensarorange}\faIcon{bullhorn}}\\[0.1cm]
+            \textbf{\normalsize Communication}\\[0.1cm]
+            {\small\color{ensardark}
+            \begin{itemize}
+                \item Plan de com.
+                \item Plaquette V3
+                \item Kit promotion
+            \end{itemize}}
+        \end{column}
+
+        \begin{column}{0.31\textwidth}
+            \centering
+            {\Large\color{ensarorange}\faIcon{calendar-check}}\\[0.1cm]
+            \textbf{\normalsize Événementiel}\\[0.1cm]
+            {\small\color{ensardark}
+            \begin{itemize}
+                \item JPO structurée
+                \item Salons
+                \item Ambassadeurs
+            \end{itemize}}
+        \end{column}
+
+        \begin{column}{0.31\textwidth}
+            \centering
+            {\Large\color{ensarorange}\faIcon{chart-line}}\\[0.1cm]
+            \textbf{\normalsize Bilan}\\[0.1cm]
+            {\small\color{ensardark}
+            \begin{itemize}
+                \item Rapport post-JPO
+                \item RETEX
+                \item Mesure conversion
+            \end{itemize}}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% ============================================================
+% SLIDE 4 : ORGANISATION DE L'ÉQUIPE
+% ============================================================
+\begin{frame}[shrink=10]{L'organisation de l'équipe}
+    \vspace{0.3cm}
+    \begin{center}
+        \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{lll}
+            \textbf{\normalsize\color{ensarorange} Rôle} &
+            \textbf{\normalsize\color{ensarorange} Acteurs} &
+            \textbf{\normalsize\color{ensarorange} Statut} \\
+            \midrule
+            \textbf{\small MOA} & \small Direction ENSAR, BDE & \small Commanditaire \\
+            \textbf{\small Chef de projet} & \small Paul Berthaut & \small Pilotage \\
+            \textbf{\small Équipe MOE} & \small A. Saleh, S. Mbaye & \small Réalisation \\
+            \textbf{\small Appui} & \small Auteurs ALPHA V2 & \small Experts \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
+\end{frame}
+
+% ============================================================
+% SLIDE 5 : CALENDRIER PRÉVISIONNEL
+% ============================================================
+\begin{frame}[shrink=15]{Calendrier prévisionnel}
+    \vspace{0.3cm}
+    \begin{center}
+        \resizebox{\textwidth}{!}{
+        \begin{tikzpicture}[node distance=2cm]
+            \draw[line width=1.5pt, color=ensargray, -latex] (0,0) -- (13.5,0);
+
+            \draw[fill=ensarorange] (1,0) circle (0.2);
+            \node[above=0.2cm, font=\small\bfseries] at (1,0) {15 Déc. 2026};
+            \node[below=0.2cm, font=\small, text=ensargray] at (1,0) {Plan com.};
+
+            \draw[fill=ensarorange] (4.5,0) circle (0.2);
+            \node[above=0.2cm, font=\small\bfseries] at (4.5,0) {15 Janv. 2027};
+            \node[below=0.2cm, font=\small, text=ensargray] at (4.5,0) {Plaquette V3};
+
+            \draw[fill=ensarorange] (8,0) circle (0.2);
+            \node[above=0.2cm, font=\small\bfseries] at (8,0) {30 Janv. 2027};
+            \node[below=0.2cm, font=\small, text=ensargray] at (8,0) {Kit promo};
+
+            \draw[fill=ensardark] (11,0) circle (0.25);
+            \node[above=0.25cm, font=\small\bfseries, text=ensardark] at (11,0) {06 Fév. 2027};
+            \node[below=0.25cm, font=\small\bfseries, text=ensardark] at (11,0) {\textbf{JPO}};
+
+            \draw[fill=ensargray] (13.5,0) circle (0.2);
+            \node[above=0.2cm, font=\small\bfseries] at (13.5,0) {15 Fév. 2027};
+            \node[below=0.2cm, font=\small, text=ensargray] at (13.5,0) {Bilan};
+        \end{tikzpicture}
+        }
+    \end{center}
+\end{frame}
+
+% ============================================================
+% SLIDE 6 : DÉCISION ET PROCHAINES ÉTAPES
+% ============================================================
+\begin{frame}[shrink=10]{Décision et prochaines étapes}
+    \vspace{0.3cm}
+    \begin{columns}[c]
+        \begin{column}{0.8\textwidth}
+            {\Large \textbf{\color{ensardark}Nous sollicitons aujourd'hui :}}
+            \vspace{0.2cm}
+            \begin{itemize}
+                \item \normalsize \textbf{Validation} de la fiche de cadrage.
+                \item \normalsize \textbf{Lancement} des groupes de travail.
+            \end{itemize}
+        \end{column}
+
+        \begin{column}{0.2\textwidth}
+            \centering
+            {\Large\color{ensarorange}\faIcon{check-circle}}
+        \end{column}
+    \end{columns}
+
+    \vspace{0.5cm}
+    \begin{center}
+        {\normalsize\textit{Merci de votre attention.}}
+    \end{center}
+\end{frame}
+
+% ============================================================
+% FIN DU DOCUMENT
+% ============================================================
+\end{document}
