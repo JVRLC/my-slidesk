@@ -17,6 +17,23 @@
     "order": 1
   },
   {
+    "title": "PMO & Support Hub — Pitch 180s",
+    "folder": "pmo-support-hub",
+    "description": "Sécurisation, gouvernance et pilotage opérationnel des 16 projets cohortes.",
+    "date": "Octobre 2026",
+    "tags": [
+      "PMO",
+      "Gouvernance",
+      "Support Hub",
+      "Pilotage"
+    ],
+    "author": "Groupe Pilote 002",
+    "theme": "default",
+    "slidesCount": 2,
+    "cover": "",
+    "order": 1
+  },
+  {
     "title": "Claude 3.5 Sonnet Architecture",
     "folder": "demo-presentation",
     "description": "Technical overview and frontier intelligence benchmarks.",
